@@ -1,0 +1,92 @@
+Logic puzzle instances are specified by facts over the following predicates:
+
+- input(ATTRIBUTE,NUMBER,VALUE):
+Provides available values VALUE for each attribute ATTRIBUTE, where each VALUE
+is associated with an integer NUMBER. Integers NUMBER are consecutive from 1,
+and the same number of values are listed for each ATTRIBUTE.
+
+- index(ATTRIBUTE):
+Distinguishes a primary attribute ATTRIBUTE to be used for matching values by
+match(ATTRIBUTE,VALUE,ATTRIBUTE2,VALUE2) atoms in a stable model. Such atoms
+over match/4 indicate the attribute values belonging together in a solution,
+i.e., they are associated with the same value VALUE for the primary ATTRIBUTE.
+
+- clue(CLUE,TYPE):
+Identifies a clue by an integer CLUE, and TYPE is some of the constants: same,
+diff, less, or next.
+
+- object(CLUE,POSITION,ATTRIBUTE,VALUE):
+Declares the value VALUE for the attribute ATTRIBUTE as an object participating
+in the clue CLUE at an integer POSITION. Integers POSITION are consecutive from
+1, and the semantics depends on the type of the CLUE:
+
+  - same: At each POSITION, there must be some (ATTRIBUTE,VALUE) pair belonging
+          together in a solution. In other words, (ATTRIBUTE,VALUE) pairs
+          associated with the same value for the primary attribute must exist
+          at each POSITION of the CLUE.
+
+  - diff: The (ATTRIBUTE,VALUE) pairs at distinct positions POSITION must not
+          belong together in a solution. In other words, (ATTRIBUTE,VALUE)
+          pairs must be associated with different values for the primary
+          attribute at distinct positions of the CLUE.
+
+  - less: The (ATTRIBUTE,VALUE) pairs at positions POSITION are ordered by
+          numbers NUMBER of associated (TARGET,VALUE2) pairs, as specified by
+          target(CLUE,TARGET) and input(TARGET,NUMBER,VALUE2) facts. In other
+          words, a solution must be such that a smaller position belongs
+          together with a target attribute value whose NUMBER is smaller.
+
+  - next: The (ATTRIBUTE,VALUE) pairs at consecutive positions POSITION must be
+          associated with (TARGET,VALUE2) pairs, as specified by
+          target(CLUE,TARGET) and input(TARGET,NUMBER,VALUE2) facts, such that
+          the associated numbers NUMBER differ by the amount 1. In other
+          words, a solution must be such that consecutive positions belong
+          together with target attribute values whose integers NUMBER are
+          consecutive.
+
+- target(CLUE,TARGET):
+Defines the TARGET attribute for ordering or restricting the difference between
+associated values, respectively, if the clue CLUE is of type 'less' or 'next'.
+
+Note that facts of the form 'clue(CLUE,less).' and 'clue(CLUE,next).' often
+occur in combination with the same clue CLUE. This means that the
+(ATTRIBUTE,VALUE) pairs at consecutive positions must be associated with
+(TARGET,VALUE2) pairs whose associated numbers NUMBER are increasing by the
+amount 1. For instance, if the TARGET attribute refers to weekdays or the price
+for goods, the combination of 'less' and 'next' means that (ATTRIBUTE,VALUE)
+pairs must belong to some weekday and the next, or gradually increasing prices.
+
+All of our logic puzzle instances include clues of the types 'same' and 'diff',
+which must thus be supported by an encoding (../encodings/logic-puzzles.lp) to
+solve any of the instances. The clue types 'less' and 'next' are needed for
+part of the instances only, and supporting them may thus be postponed to a
+second step of development. For our logic logic puzzle instances, the unique
+solutions are stored in fact files whose names end on '_sol.lp', and automated
+correctness checks that reproduce computed solutions in case of success can be
+run with an encoding for correctness checking (../encodings/check.lp).
+
+The numbers of values VALUE per attribute and different attributes ATTRIBUTE as
+well as the inclusion of 'less' or 'next' clues in our logic puzzle instances
+is summarized in the following table:
+
+INSTANCE                       | VALUE | ATTRIBUTE | LESS | NEXT
+-------------------------------|-------|-----------|------|-----
+daycare-drop-offs.lp           |   3   |     3     |   no |   no
+cooking-class.lp               |   3   |     3     |   no |   no
+cake-maker.lp                  |   3   |     4     |  yes |  yes
+apprentice-mechanic-mishaps.lp |   4   |     3     |   no |   no
+computer-repair-shop.lp        |   4   |     3     |   no |   no
+diy-did-we-do-this.lp          |   4   |     3     |  yes |   no
+hoops.lp                       |   4   |     3     |  yes |  yes
+egg-citing-easter-hunt.lp      |   4   |     4     |  yes |   no
+slurping-smoothies.lp          |   4   |     4     |  yes |  yes
+between-the-vines.lp           |   4   |     4     |  yes |  yes
+the-cheesy-chuckle-club.lp     |   4   |     4     |  yes |  yes
+zebra.lp                       |   5   |     5     |  yes |  yes
+
+The (unique) solution for each of the instances shall be represented in terms
+of atoms of the form match(ATTRIBUTE,VALUE,ATTRIBUTE2,VALUE2), where ATTRIBUTE
+is specified by an 'index(ATTRIBUTE).' fact. Each VALUE for ATTRIBUTE must be
+matched to exactly one VALUE2 for each different attribute ATTRIBUTE2, and vice
+versa. In this way, a solution is characterized by equivalence classes between
+attribute values, and one can read off which attribute values belong together.

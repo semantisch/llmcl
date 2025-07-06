@@ -1,0 +1,12 @@
+solution(day,monday,fruit,apple).
+solution(day,monday,nut,cashews).
+solution(day,monday,vegetable,spinach).
+solution(day,thursday,fruit,mango).
+solution(day,thursday,nut,almonds).
+solution(day,thursday,vegetable,kale).
+solution(day,tuesday,fruit,pear).
+solution(day,tuesday,nut,pecans).
+solution(day,tuesday,vegetable,lettuce).
+solution(day,wednesday,fruit,banana).
+solution(day,wednesday,nut,macademias).
+solution(day,wednesday,vegetable,collard).

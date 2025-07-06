@@ -1,0 +1,6 @@
+For solving logic puzzle instances like those specified by the fact files in
+the '../instances' folder, the logic-puzzles.lp file needs to extended with
+general rules characterizing solutions that satisfy the clues in the instances.
+
+Automated correctness checks that reproduce computed solutions in case of
+success can be run with the correctness checking encoding in the check.lp file.

@@ -1,0 +1,12 @@
+solution(time,"7:00",comedian,waylan).
+solution(time,"7:00",reason,drunk).
+solution(time,"7:00",theme,reunions).
+solution(time,"7:30",comedian,rip).
+solution(time,"7:30",reason,tips).
+solution(time,"7:30",theme,divorce).
+solution(time,"8:20",comedian,larry).
+solution(time,"8:20",reason,staff).
+solution(time,"8:20",theme,house).
+solution(time,"9:00",comedian,abigail).
+solution(time,"9:00",reason,shoe).
+solution(time,"9:00",theme,cat).

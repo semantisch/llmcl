@@ -1,0 +1,12 @@
+solution(order,1,award,tempranillo).
+solution(order,1,winery,bottling).
+solution(order,1,year,1969).
+solution(order,2,award,shiraz).
+solution(order,2,winery,cork).
+solution(order,2,year,1983).
+solution(order,3,award,noir).
+solution(order,3,winery,grapecious).
+solution(order,3,year,1978).
+solution(order,4,award,blanc).
+solution(order,4,winery,vines).
+solution(order,4,year,1974).
