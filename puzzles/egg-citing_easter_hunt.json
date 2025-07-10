@@ -1,0 +1,45 @@
+{
+    "description": "This Easter the Gould family are hosting a family gathering including an Easter Egg Hunt for the youngest children. The child who found the most eggs came first and won an extra special prize! From the clues given, can you figure out which position each child placed (based on the number of eggs they found), and the pattern and hiding place of each child's very first egg-citing find of the day?\nThe permissible items are: \nName: ['Sunita', 'Thomas', 'Riley', 'Mandy']\nEgg Pattern: ['Purple Swirls', 'Multi-Colored Dots', 'Blue & Yellow Stars', 'Green Wavy Lines']\nHiding Place: ['Herb Garden', 'Multi-Colored Dots', 'Mailbox', 'Sandpit', 'Under Slide']\nPosition: ['Herb Garden', '3rd', '2nd']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The grandparents of the family, who hosted the event, have a mini playground in the background for the kids. The egg with the purple swirls was found under the slide."
+        },
+        {
+            "id": 2,
+            "text": "The child who placed 1st did not find the egg with the purple swirls."
+        },
+        {
+            "id": 3,
+            "text": "The egg that was cleverly placed in the mailbox was found quicker than expected! It was decorated with multi-colored dots."
+        },
+        {
+            "id": 4,
+            "text": "Riley didn't find the most eggs, nor did Sunita."
+        },
+        {
+            "id": 5,
+            "text": "The child who placed third found the egg with the blue and yellow stars pattern."
+        },
+        {
+            "id": 6,
+            "text": "Thomas, who did not place 4th, was either the child who found their first egg under the slide, or the child who found the egg with the green wavy lines."
+        },
+        {
+            "id": 7,
+            "text": "Sunita was either the child who placed 4th, or the one who found their first egg in the mailbox."
+        },
+        {
+            "id": 8,
+            "text": "Riley found his first egg in the sandpit."
+        },
+        {
+            "id": 9,
+            "text": "Thomas (who did not find his first egg in the herb garden) found more eggs than Riley, but less eggs than Mandy."
+        },
+        {
+            "id": 10,
+            "text": "Mandy did not find her first egg in the herb garden."
+        }
+    ]
+}

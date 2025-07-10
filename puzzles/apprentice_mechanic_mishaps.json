@@ -1,0 +1,25 @@
+{
+    "description": "Four apprentice mechanics work at Rusty's Repair Shop. They are generally well-regarded by management, but last week with less supervision there were some mistakes that led to a number of angry customers. Using the clues provided, can you determine which apprentice worked on which car, and the mistake that was made?\nThe permissible items are: \nCar: ['GMC Sierra', 'Toyota Corolla', 'Honda Civic', 'Subaru Forester']\nMistake: ['Drilled Hole In Gas Tank', 'Left The Oil Cap Off', 'Left Stains On Carpet', 'Fixed Wrong Problem']\nName: ['Drilled Hole In Gas Tank', 'Bart', 'Kayla']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Bart didn't work on the Sierra, nor did he leave the oil cap off."
+        },
+        {
+            "id": 2,
+            "text": "The four apprentices are Kayla, the one who worked on the Honda Civic, the one who left the oil cap off, and the one who left stains on the carpet."
+        },
+        {
+            "id": 3,
+            "text": "The receptionist was in tears after dealing with the customer who had found a hole was accidentally drilled in their gas tank (oops!). This wasn't the Sierra."
+        },
+        {
+            "id": 4,
+            "text": "Jimmy didn't leave the oil cap off nor leave stains on the carpet of the vehicle he worked on."
+        },
+        {
+            "id": 5,
+            "text": "Harrison worked on the Forester, and disliked every minute of it."
+        }
+    ]
+}

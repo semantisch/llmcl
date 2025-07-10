@@ -1,0 +1,29 @@
+{
+    "description": "The Cheesy Chuckle Club is planning its next stand up comedy night with four slots on the line up. However, since a new comedy club opened up across the street, they've been struggling to book quality acts and have had to ask back four comedians whom they had previously banned! Can you match up each comedian with the time they will go on, the theme of their act, and the reason for their prior ban from the club?\nThe permissible items are: \nComedian: ['Waylan Whoop', 'Rip Van Roar', 'Abigail Later', 'Larry Laughs']\nTheme: ['Getting A Cat', 'Moving House', 'Family Reunions', 'Divorce']\nBan Reason: ['Arrived Drunk', 'Threw A Shoe', 'Stole Tips', 'Getting A Cat', 'Insulted Staff']\nTime: ['8:20pm', 'Threw A Shoe', '7:30pm']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Abigail Later has a busy schedule so the club agreed to her request for the slot immediately after Larry Laughs."
+        },
+        {
+            "id": 2,
+            "text": "The divorce act, which will be every bit as bitter as it sounds, will be later in the night than the family reunion act."
+        },
+        {
+            "id": 3,
+            "text": "The 7:30pm slot is either the divorce act or the comedian who was previously told not to return for insulting the club's staff."
+        },
+        {
+            "id": 4,
+            "text": "The comedian who has previously insulted the clubs staff is too foul tempered to enjoy the company of cats, and has no experience with which to speak on the subject. The person who will speak about their new kitty is not scheduled to go on at 8:20pm."
+        },
+        {
+            "id": 5,
+            "text": "Rip Van Roar will be performing immediately after the comedian who was previously banned due to turning up so drunk he or she couldn't climb the stairs to the stage. This was an embarrassing night for the club, as they didn't have a backup performer."
+        },
+        {
+            "id": 6,
+            "text": "The comedian who once stole the bartenders' tips is either Larry Laughs or the act that will be going on at 7:30pm. The brazen thief has since apologized to management, and is performing for free - immediately after Waylan Whoop."
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "description": "In the secretive underground city of Rolis, nestled deep beneath the bustling streets of Chicago, five of the newest young superheroes are undergoing rigorous training to master and control their powers! Earlier today each teen was assigned a challenging situation to overcome. The objective was to simulate helping in the real world while maintaining anonymity. From the clues provided, can you determine the name, power, and challenge that was set for each of the youths?\nThe permissible items are: \nPower: ['Invisibility', 'Shapeshifting', 'Weather Manipulation', 'Telekenesis', 'Mind Control']\nChallenge: ['Underwater Rescue', 'Secure Building', 'Retrieve Stolen Goods', 'Extract Prisoner', 'Prevent Assassination']\nName: ['Thorne', 'Aether', 'Extract Prisoner', 'Silver']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The power of telekenesis was employed to secure a dangerous building that had undergone partial collapse! The teen was able to move a number of heavy items to the necessary positions to act as supports."
+        },
+        {
+            "id": 2,
+            "text": "Zara does not have the power of weather manipulation. The teen who does have the ability to conjure a storm on command was not assigned the underwater rescue."
+        },
+        {
+            "id": 3,
+            "text": "Silver was not a participant in the underwater rescue."
+        },
+        {
+            "id": 4,
+            "text": "The teen with the ability to become invisible is either Thorne or the one tasked with extracting a prisoner from a locked room."
+        },
+        {
+            "id": 5,
+            "text": "Either Thorne or the teen with the power of mind control was tasked to retrieve some stolen goods."
+        },
+        {
+            "id": 6,
+            "text": "Of Tangier and the teen asked to prevent an assassination, one has the power of shapeshifting and the other can manipulate the weather."
+        },
+        {
+            "id": 7,
+            "text": "Neither Aether nor Zara have the power of mind control, but they are both jealous."
+        },
+        {
+            "id": 8,
+            "text": "The underwater rescue went off swimmingly (ahem), but there were no shapeshifters involved."
+        },
+        {
+            "id": 9,
+            "text": "The shapeshifter, who is not Zara, was not asked to prevent an assassination."
+        }
+    ]
+}

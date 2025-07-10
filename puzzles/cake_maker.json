@@ -1,0 +1,21 @@
+{
+    "description": "Lucy is a sought-after cake maker in the friendly small town of Plumpton. There aren't enough residents in the town to run her business full-time, so she bakes and decorates the cakes in the evenings after her main job. Tomorrow night, Lucy will be busy with three cakes to prepare - all different flavors and occasions! From the clues given, can you determine which client (identified by first name) ordered which type of cake, what the occasion is, and the price each customer will pay?\nThe permissible items are: \nFlavor: ['Vanilla', 'Chocolate', 'Carrot']\nOccasion: ['Graduation', 'Farewell Party', 'Birthday']\nPrice: ['Graduation', '$35.00', '$39.00', '$37.00']\nName: ['$35.00', 'Michael']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Emma ordered carrot cake for an event she is hosting at her home, but it did not cost $37.00."
+        },
+        {
+            "id": 2,
+            "text": "Attendees of the farewell party will each be enjoying a big slice of vanilla cake."
+        },
+        {
+            "id": 3,
+            "text": "The cake Michael ordered cost $2.00 less than the cake that is for a birthday."
+        },
+        {
+            "id": 4,
+            "text": "The chocolate cake is Lucy's specialty, which she currently has discounted to $35.00."
+        }
+    ]
+}

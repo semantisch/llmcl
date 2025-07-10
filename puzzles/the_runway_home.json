@@ -1,0 +1,37 @@
+{
+    "description": "Five panicked travelers are running through Sydney International Airport in a desperate rush to board their flights in time! They are all heading home for the holidays but were delayed by an incident at the security checkpoint. From the information given, can you connect the names of each passenger with their gate number, departure time, and destination?\nThe permissible items are: \nGate No.: ['15', '19', '20', '10', '17']\nDepart Time: ['6:12pm', '6:14pm', '6:09pm', '6:05pm', '6:07pm']\nDestination: ['Tokyo', 'Auckland', '6:05pm', 'Singapore', 'Jakarta', 'Manila']\nName: ['Cindy', 'Auckland', 'Ken', 'Antonio']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Ken's flight has a higher gate number than the 6:09pm flight, but a lower gate number than the flight to Jakarta."
+        },
+        {
+            "id": 2,
+            "text": "Antonio's flight (which is not boarding at gate 20) departs exactly 2 minutes before Lin's and exactly 2 minutes after the flight leaving gate 15."
+        },
+        {
+            "id": 3,
+            "text": "The flight to Jakarta departs sometime after the flight to Singapore, but the difference between the departure times of these two flights is not precisely 3 minutes."
+        },
+        {
+            "id": 4,
+            "text": "Kai's flight to Auckland is scheduled for sometime after the flight leaving gate 17."
+        },
+        {
+            "id": 5,
+            "text": "The flight to Manila is leaving from a lower gate number than the flight to Jakarta, but a higher gate number than the flight that leaves at 6:05pm."
+        },
+        {
+            "id": 6,
+            "text": "The flight to Tokyo departs earlier than 6:12pm."
+        },
+        {
+            "id": 7,
+            "text": "The flight to Tokyo has a higher gate number than the flight to Singapore, but a lower gate number than Antonio's flight."
+        },
+        {
+            "id": 8,
+            "text": "Cindy's gate number is an even number."
+        }
+    ]
+}

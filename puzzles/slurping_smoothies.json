@@ -1,0 +1,29 @@
+{
+    "description": "Anya has made many attempts at beginning healthy habits this year, each falling by the wayside after a few weeks at most! She has just renewed her determination to be healthier by starting the practice of drinking daily smoothies each morning. Each smoothie has a green vegetable, a type of nut, and a type of fruit, among other ingredients. She began on Monday and is four days in. Can you determine which ingredients were combined together, and the day Anya drank that smoothie?\nThe permissible items are: \nFruit: ['Mango', 'Apple', 'Banana', 'Pear']\nVegetable: ['Collard Greens', 'Kale', 'Spinach', 'Lettuce']\nNut: ['Almonds', 'Pecans', 'Macadamias', 'Kale', 'Cashews']\nDay: ['Wednesday', 'Tuesday', 'Pecans']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The pecan smoothie did not contain mangoes nor bananas."
+        },
+        {
+            "id": 2,
+            "text": "For the first two days of the week Anya had spinach and lettuce in her smoothies - but not necessarily in that order."
+        },
+        {
+            "id": 3,
+            "text": "The kale smoothie did not have macadamias in it, nor did the spinach smoothie."
+        },
+        {
+            "id": 4,
+            "text": "On Thursday Anya drank a smoothie containing almonds."
+        },
+        {
+            "id": 5,
+            "text": "The banana smoothie was one day after the smoothie containing pecans, and two days after the apple smoothie."
+        },
+        {
+            "id": 6,
+            "text": "Anya enjoyed the combination of pear with lettuce more than she expected to."
+        }
+    ]
+}

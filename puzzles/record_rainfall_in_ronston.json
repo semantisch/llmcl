@@ -1,0 +1,29 @@
+{
+    "description": "The small and unremarkable town of Ronston, Pennsylvania made the news this week after a year of record rainfall. Five local residents were interviewed for a newspaper article, each reporting the reading from their rain gauge for a particular month of the calendar year that has just passed. Can you determine each person's name and occupation, which months they reported the reading for, and what the rainfall reading was for that month?\nThe permissible items are: \nOccupation: ['Shopkeeper', 'Bus Driver', 'Nurse', 'Plumber', 'Teacher']\nMonth: ['July', 'March', 'April', 'June', 'February']\nReading: ['30 Inches', '21 Inches', '18 Inches', '24 Inches', '26 Inches', 'February']\nName: ['18 Inches', 'Claire', 'Ted', 'Harmony']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The teacher scrawled down the reading of 26 inches on the back of of a students' workbook, before heading back inside to finish grading their work."
+        },
+        {
+            "id": 2,
+            "text": "Roger, who didn't report a June rainfall reading, never tires of fixing sinks and toilets for a living. He learned the trade from his father, who is now the Mayor of Ronston."
+        },
+        {
+            "id": 3,
+            "text": "Claire was shocked to record a newsworthy 24 inches of rain from her brand new rain gauge during the month she received it for her birthday. This occurred precisely one month after Ted's reading that made the newspaper."
+        },
+        {
+            "id": 4,
+            "text": "The highest rainfall reading was not the February reading (which was recorded by the Bus Driver), but the lowest reading was definitely recorded in April."
+        },
+        {
+            "id": 5,
+            "text": "Harmony framed the article after her July rainfall reading went to print. Harmony is not a Shopkeeper, nor a Nurse (she can't handle the sight of blood)."
+        },
+        {
+            "id": 6,
+            "text": "The Shopkeeper was lying on the beach in Hawaii for the entire month of March, and monitoring the rain back home in Pennsylvania was the furthest thing from his or her mind."
+        }
+    ]
+}

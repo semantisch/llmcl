@@ -1,0 +1,53 @@
+{
+    "description": "This Saturday, seven animal lovers plan to celebrate a special occasion at the acclaimed new zoo, Zoo York City, and they've each booked a private animal experience to attend with loved ones while there. From the clues given, can you determine who booked which zoo experience, what their appointment time is, and the occasion they are celebrating?\nThe permissible items are: \nCelebration: ['Anniversary', 'Engagement', 'Lottery Win', 'Job Promotion', 'Family Visiting', 'Sold House', 'Birthday']\nExperience: ['Cheetah Encounter', 'Treetop Walk', 'Koala Photos', 'Feeding Tigers', 'Barnyard Babies', 'Meet The Monkeys', 'Swim With Dolphins']\nTime: ['10:00am', '1:00pm', '2:00pm', '11:00am', 'Feeding Tigers', '12:00pm', '9:00am', '3:00pm']\nName: ['Philip', 'Amanda', '9:00am', 'Rodrigo', 'Simeon', 'Sarah']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Simeon made a booking for 12:00pm, right before the plan to lunch at the Little Hippo Cafe. The cafe has a good view of the koala enclosure, where one of the other zoo visitors will have their photos taken with the furry Australian critters at 1:00pm."
+        },
+        {
+            "id": 2,
+            "text": "The person who booked the Treetop Walk is not any one of the people celebrating a birthday, a job promotion, or an anniversary."
+        },
+        {
+            "id": 3,
+            "text": "The seven people who booked their day at the zoo are: the person celebrating an anniversary, Sarah, the person with an experience booked for 9:00am, the person who booked the Cheetah Encounter, the person celebrating their engagement, Rodrigo, and the person with an experience booked in for 2:00pm."
+        },
+        {
+            "id": 4,
+            "text": "Of Natasha and the person with the 9:00am reservation, one is celebrating an anniversary and the other is hoping for good weather - since they will be swimming with dolphins!"
+        },
+        {
+            "id": 5,
+            "text": "The person celebrating their 10 year wedding anniversary is not booked in for the 11:00am animal experience."
+        },
+        {
+            "id": 6,
+            "text": "Amanda isn't very computer literate and is a little embarrassed to have booked the Treetop Walk by mistake. She plans to follow through but is not sure what it is all about. Presumably there will be birds? Perhaps giraffes? Her booking is exactly one hour after Natasha's booking time."
+        },
+        {
+            "id": 7,
+            "text": "The lucky local who is celebrating a lottery win by quitting their job and spending a day of freedom at the zoo decided against tempting fate by feeding tigers - just in case the worst happened and they couldn't enjoy their newfound riches."
+        },
+        {
+            "id": 8,
+            "text": "Of Philip and the person celebrating a lottery win, one will be enjoying the Barnyard Babies experience and the other has a 12:00pm booking."
+        },
+        {
+            "id": 9,
+            "text": "Sarah's booking time is later in the day than Rodrigo's. The Meet The Monkeys booking time is later in the day than the Feeding Tigers experience."
+        },
+        {
+            "id": 10,
+            "text": "One zoo goer made their plans to get out of the house and entertain family who are visiting (and driving them a bit mad). They don't have the 2:00pm reservation."
+        },
+        {
+            "id": 11,
+            "text": "The person celebrating a job promotion will be enjoying one of the special zoo experiences at 3:00pm sharp. This isn't the Cheetah Encounter."
+        },
+        {
+            "id": 12,
+            "text": "The person who will enjoy a zoo day to mark selling their house is not booked in for a 10:00am session nor an 11:00am session. The successful seller is either Sarah or Rodrigo."
+        }
+    ]
+}

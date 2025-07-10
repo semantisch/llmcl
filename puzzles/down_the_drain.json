@@ -1,0 +1,41 @@
+{
+    "description": "Richard owns a small plumbing business and has just hired enough new staff to take a step back from the tools so he can focus on the management tasks. This morning he has sent employees out to five different jobs, each to work independently. From the clues provided, can you match each employee with the name of the customer they have been assigned to, the street address, and the reason for the job?\nThe permissible items are: \nClient: ['Mr Locklear', 'Ms Torres', 'Mrs Greeson', 'Mr Halloway', 'Mr Cohen']\nAddress: ['8 Alford Drive', '55 England Avenue', '44 Glennsade Avenue', '9 Universal Avenue', '13 Oak Meadow Drive']\nJob: ['No Hot Water', '8 Alford Drive', 'Blocked Toilet', 'Leaking Taps', 'Replace Sink', 'Broken Pipe']\nEmployee: ['Harry', 'Leaking Taps', 'Dakota', 'Woody']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The five jobs are the one with a hot water issue, the one on Oak Meadow Drive, the one for Mr Cohen, the one Harry is attending, and the blocked toilet."
+        },
+        {
+            "id": 2,
+            "text": "Either Dakota or Harry was sent to help Mr Halloway."
+        },
+        {
+            "id": 3,
+            "text": "David was not sent to work for Mr Cohen (who lives on England Avenue) nor Mr Locklear."
+        },
+        {
+            "id": 4,
+            "text": "Of David and Gavin, one was sent to 9 Universal Avenue and the other was sent to fix a blocked toilet."
+        },
+        {
+            "id": 5,
+            "text": "Mrs Greeson (who didn't book her job due to leaking taps) has a lower street number than the job Dakota was sent to."
+        },
+        {
+            "id": 6,
+            "text": "Ms Torres' street number is an odd number."
+        },
+        {
+            "id": 7,
+            "text": "Neither the client Harry worked for nor Mr Halloway lives at 44 Glennsade Avenue."
+        },
+        {
+            "id": 8,
+            "text": "Mr Cohen stood outside watching (with a cup of coffee) the entire time the work was being undertaken to replace his broken pipe."
+        },
+        {
+            "id": 9,
+            "text": "The leaking taps were not assigned to Woody nor David."
+        }
+    ]
+}
