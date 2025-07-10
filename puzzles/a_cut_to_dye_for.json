@@ -1,5 +1,5 @@
 {
-    "description": "Rachel runs a hair salon in an outer city suburb of Brisbane, Australia. Today is looking to be a quiet day, with only 5 appointments shared among multiple staff. Each client will be having a different treatment, including a blonde-toned balayage and a siren red color. Can you match the clients with their appointment time and treatment?\nThe permissible items are: \nName: ['Fiona', 'Maddy', 'Gayle', 'Stephanie', 'Alison']\nTreatment: ['Color', 'Balayage', 'Blow Dry', 'Straightening', 'Cut']\nTime: ['1:00pm', 'Cut', '11:00am', '10:00am']",
+    "description": "Rachel runs a hair salon in an outer city suburb of Brisbane, Australia. Today is looking to be a quiet day, with only 5 appointments shared among multiple staff. Each client will be having a different treatment, including a blonde-toned balayage and a siren red color. Can you match the clients with their appointment time and treatment?\nThe permissible items are: \nName: ['Fiona', 'Stephanie', 'Gayle', 'Maddy', 'Alison']\nTreatment: ['Cut', 'Blow Dry', 'Straightening', 'Color', 'Balayage']\nTime: ['10:00am', '1:00pm', '2:00pm', '11:00am', '9:00am']",
     "clues": [
         {
             "id": 1,

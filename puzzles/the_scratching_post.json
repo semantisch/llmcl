@@ -1,5 +1,5 @@
 {
-    "description": "Yvonne runs a home cat boarding facility, \"The Scratching Post\", looking after local kitties while their owners are away. It's feeding time, and each cat has a different designated food! Can you determine the name and breed of each cat, the food they have for dinner, and how many days they've been staying with Yvonne so far?\nThe permissible items are: \nBreed: ['Tabby', 'Ragdoll', 'Siamese', 'Devon Rex', 'Persian']\nFood: ['Chicken Breast', 'Tuna Kidney Diet', 'Beef Kibble', 'Lamb Kibble', 'Raw Beef']\nDays Stayed: ['13', 'Beef Kibble', '9', '11', '3', '5']\nName: ['3', 'Bandit', 'Figaro', 'Mickey']",
+    "description": "Yvonne runs a home cat boarding facility, \"The Scratching Post\", looking after local kitties while their owners are away. It's feeding time, and each cat has a different designated food! Can you determine the name and breed of each cat, the food they have for dinner, and how many days they've been staying with Yvonne so far?\nThe permissible items are: \nBreed: ['Ragdoll', 'Persian', 'Tabby', 'Siamese', 'Devon Rex']\nFood: ['Beef Kibble', 'Chicken Breast', 'Lamb Kibble', 'Tuna Kidney Diet', 'Raw Beef']\nDays Stayed: ['13', '5', '11', '3', '9']\nName: ['Bandit', 'Ralph', 'Mickey', 'Figaro', 'Zeus']",
     "clues": [
         {
             "id": 1,

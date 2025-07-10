@@ -1,5 +1,5 @@
 {
-    "description": "Four apprentice mechanics work at Rusty's Repair Shop. They are generally well-regarded by management, but last week with less supervision there were some mistakes that led to a number of angry customers. Using the clues provided, can you determine which apprentice worked on which car, and the mistake that was made?\nThe permissible items are: \nCar: ['GMC Sierra', 'Toyota Corolla', 'Honda Civic', 'Subaru Forester']\nMistake: ['Drilled Hole In Gas Tank', 'Left The Oil Cap Off', 'Left Stains On Carpet', 'Fixed Wrong Problem']\nName: ['Drilled Hole In Gas Tank', 'Bart', 'Kayla']",
+    "description": "Four apprentice mechanics work at Rusty's Repair Shop. They are generally well-regarded by management, but last week with less supervision there were some mistakes that led to a number of angry customers. Using the clues provided, can you determine which apprentice worked on which car, and the mistake that was made?\nThe permissible items are: \nCar: ['Subaru Forester', 'Honda Civic', 'Toyota Corolla', 'GMC Sierra']\nMistake: ['Left Stains On Carpet', 'Fixed Wrong Problem', 'Left The Oil Cap Off', 'Drilled Hole In Gas Tank']\nName: ['Bart', 'Kayla', 'Jimmy', 'Harrison']",
     "clues": [
         {
             "id": 1,

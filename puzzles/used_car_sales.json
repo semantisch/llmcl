@@ -1,5 +1,5 @@
 {
-    "description": "Jerry owns a used car dealership in Florida and has just had quite a good sales day, sending five cars out the door to new owners! From the clues given, can you determine the make, color, year, and sale price of each of the cars that were sold?\nThe permissible items are: \nColor: ['Black', 'Red', 'Blue', 'Silver', 'White']\nYear: ['2014', '2012', '2009', '2016', '2011']\nPrice: ['$6,000', '$4,500', '2009', '$5,000', '$7,000', '$5,500']\nMake: ['Toyota', '$4,500', 'Hyundai', 'Audi']",
+    "description": "Jerry owns a used car dealership in Florida and has just had quite a good sales day, sending five cars out the door to new owners! From the clues given, can you determine the make, color, year, and sale price of each of the cars that were sold?\nThe permissible items are: \nColor: ['Blue', 'Black', 'White', 'Silver', 'Red']\nYear: ['2011', '2014', '2009', '2012', '2016']\nPrice: ['$7,000', '$5,500', '$6,000', '$4,500', '$5,000']\nMake: ['Toyota', 'Ford', 'Audi', 'Hyundai', 'Honda']",
     "clues": [
         {
             "id": 1,

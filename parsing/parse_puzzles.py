@@ -20,33 +20,46 @@ def extract_links():
 def extract_permissible_feats():
     result = defaultdict(list)
 
-    # Get column group headers from <thead> (e.g., "Age", "Toy")
     column_header_cells = driver.find_elements(By.XPATH, "//thead/tr/td[contains(@class, 'factor')]")
     col_labels = []
-    col_counts = []
-
     for cell in column_header_cells:
         label = cell.text.strip()
         colspan = int(cell.get_attribute("colspan") or 1)
         col_labels.extend([label] * colspan)
-        col_counts.append(colspan)
 
-    # Get specific column values from the first <tbody> row
     first_value_row = driver.find_elements(By.XPATH, "//tr[@id='tr_first_values_row']/td/span")
     for idx, span in enumerate(first_value_row):
-        group_label = col_labels[idx]  # dynamically mapped from headers
-        result[group_label].append(span.text.strip())
+        result[col_labels[idx]].append(span.text.strip())
 
-    # Get row labels (e.g., "Name", "Toy") from first column of body rows
-    factor_rows = driver.find_elements(By.XPATH, "//tbody/tr")
-    for row in factor_rows:
-        first_td = row.find_elements(By.XPATH, "./td[@class='rowValues rowValuesLeft']")
-        if first_td:
-            # Look for closest <td class="td-vertical factor"> up the row stack
-            preceding_label_td = row.find_elements(By.XPATH, "./preceding-sibling::tr/td[@class='td-vertical factor']/span")
-            if preceding_label_td:
-                label = preceding_label_td[-1].text.strip()
-                result[label].append(first_td[0].text.strip())
+    # ===== ROW HEADERS (fixing rowspan) =====
+    tbody_rows = driver.find_elements(By.XPATH, "//tbody/tr")
+    row_labels_by_index = {}
+    current_label = None
+    remaining_span = 0
+
+    for i, row in enumerate(tbody_rows):
+        label_td = row.find_elements(By.XPATH, "./td[@class='td-vertical factor']/span")
+        if label_td:
+            current_label = label_td[0].text.strip()
+            rowspan = int(row.find_element(By.XPATH, "./td[@class='td-vertical factor']").get_attribute("rowspan") or 1)
+            remaining_span = rowspan
+
+        if current_label and remaining_span > 0:
+            row_labels_by_index[i] = current_label
+            remaining_span -= 1
+            if remaining_span == 0:
+                current_label = None
+
+    # Now map actual values under those row labels
+    for i, row in enumerate(tbody_rows):
+        label = row_labels_by_index.get(i)
+        value_cells = row.find_elements(By.XPATH, "./td[@class='rowValues rowValuesLeft']")
+        if label:
+            if value_cells:
+                result[label].append(value_cells[0].text.strip())
+            elif row.text:
+                result[label].append(row.text.strip())
+        
     for k in result:
         result[k] = list(set(result[k]))
     

@@ -1,5 +1,5 @@
 {
-    "description": "Last night three friends who have just taken a cooking class held a dinner to practice their new skills. Can you identify which person brought which main course, and the dessert they each made for the evening?\nThe permissible items are: \nMain Dish: ['Gado Gado', 'Beef Wellington', 'Shrimp Ceviche']\nDessert: ['Creme Brulee', 'French Apple Cake', 'Raspberry Tiramisu']\nName: ['Creme Brulee', 'Tobias']",
+    "description": "Last night three friends who have just taken a cooking class held a dinner to practice their new skills. Can you identify which person brought which main course, and the dessert they each made for the evening?\nThe permissible items are: \nMain Dish: ['Gado Gado', 'Beef Wellington', 'Shrimp Ceviche']\nDessert: ['French Apple Cake', 'Raspberry Tiramisu', 'Creme Brulee']\nName: ['Leanne', 'Tobias', 'Fiona']",
     "clues": [
         {
             "id": 1,

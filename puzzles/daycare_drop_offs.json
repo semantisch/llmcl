@@ -1,5 +1,5 @@
 {
-    "description": "Dalton Daycare has 3 new attendees today, who have just been dropped off by their slightly anxious parents. Each child was given a toy from home to make them more comfortable. Using the clues provided, can you determine the age of each child and the toy they were dropped off with?\nThe permissible items are: \nAge: ['4 years', '3 years', '5 years']\nToy: ['Train', 'Dinosaur', 'Plush Dog']\nName: ['Train', 'Kylie']",
+    "description": "Dalton Daycare has 3 new attendees today, who have just been dropped off by their slightly anxious parents. Each child was given a toy from home to make them more comfortable. Using the clues provided, can you determine the age of each child and the toy they were dropped off with?\nThe permissible items are: \nAge: ['4 years', '3 years', '5 years']\nToy: ['Dinosaur', 'Train', 'Plush Dog']\nName: ['Emma', 'Kylie', 'Max']",
     "clues": [
         {
             "id": 1,

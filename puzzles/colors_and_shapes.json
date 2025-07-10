@@ -1,5 +1,5 @@
 {
-    "description": "Nina is a kindergarten teacher, and today the children are learning about colors and shapes. She has hidden around the classroom a unique number of each of five shapes her class are to find and count. Each type of shape is in a particular color. Can you identify from the clues which color each shape is and how many of them are hidden in the classroom?\nThe permissible items are: \nColor: ['Red', 'Green', 'Brown', 'Yellow', 'Purple']\nCount: ['6', '4', '3', '7', '5']\nShape: ['Triangle', 'Square', 'Hexagon', '3']",
+    "description": "Nina is a kindergarten teacher, and today the children are learning about colors and shapes. She has hidden around the classroom a unique number of each of five shapes her class are to find and count. Each type of shape is in a particular color. Can you identify from the clues which color each shape is and how many of them are hidden in the classroom?\nThe permissible items are: \nColor: ['Yellow', 'Green', 'Red', 'Purple', 'Brown']\nCount: ['5', '6', '7', '3', '4']\nShape: ['Hexagon', 'Circle', 'Triangle', 'Square', 'Octagon']",
     "clues": [
         {
             "id": 1,
