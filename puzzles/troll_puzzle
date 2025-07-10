@@ -1,0 +1,21 @@
+{
+  "description": "There are five houses, each with a resident, a type of house, a potion, a helper, and a music preference. Determine who keeps the strength potion and who is helped by the troll.",
+
+  "clues": [
+    { "id": 1, "text": "There are five houses." },
+    { "id": 2, "text": "The Hobbit lives in the forest house." },
+    { "id": 3, "text": "The Elf is helped by the pixie." },
+    { "id": 4, "text": "The invisibility potion is kept in the valley house." },
+    { "id": 5, "text": "The Dunedain owns the velocity potion." },
+    { "id": 6, "text": "The valley is immediately to the right of the cave house." },
+    { "id": 7, "text": "The punk music fan is helped by the minotaur." },
+    { "id": 8, "text": "Folk music is listened to in the castle." },
+    { "id": 9, "text": "The flying potion is kept in the middle house." },
+    { "id": 10, "text": "The wizard lives in the first house." },
+    { "id": 11, "text": "The one who listens to indie music lives in the house next to the one who's helped by the fairy." },
+    { "id": 12, "text": "Folk music is listened in the house next to the house of the one helped by the goblin." },
+    { "id": 13, "text": "The opera music fan keeps the clairvoyance potion." },
+    { "id": 14, "text": "The dwarf is a fan of metal." },
+    { "id": 15, "text": "The wizard lives next to the lighthouse." }
+
+}
