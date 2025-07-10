@@ -1,0 +1,33 @@
+{
+  "description": "Wine tour company 'Between The Vines' is taking a group of 10 friends on a day trip to enjoy four local award winning wineries. From the clues provided, can you identify the order in which they will stop at each winery, the year the winery was established, and the variety of wine each winery recently won an award for?",
+  "clues": [
+    {
+      "id": 1,
+      "text": "The four wineries are Vindictive Vines, the one who won an award for their Shiraz, the one established in 1969, and the one that will be visited 3rd."
+    },
+    {
+      "id": 2,
+      "text": "Of Chateau Cork and the winery established in 1974, one has the award winning Sauvignon Blanc and the other will be visited 2nd."
+    },
+    {
+      "id": 3,
+      "text": "Boozy Bottling was not established between 1973 and 1977."
+    },
+    {
+      "id": 4,
+      "text": "The first winery to be visited won an award for a wine variety that has a single word name."
+    },
+    {
+      "id": 5,
+      "text": "The winery established in 1978 will be visited either immediately before or immediately after the winery with the award winning Shiraz."
+    },
+    {
+      "id": 6,
+      "text": "Of the winery who won an award for their Tempting Tempranillo and the winery known as Goodness Grapecious, one was established in 1978 and the other is the first destination of the wine tour."
+    },
+    {
+      "id": 7,
+      "text": "The last winery on the tour was established 5 years after the first winery on the tour."
+    }
+  ]
+}
