@@ -1,0 +1,53 @@
+{
+    "description": "Five friends who were in school together in the 1990's are having coffee while reminiscing about the things they miss from growing up in the 90s! They were all pop music fans who still remember the lyrics to their old favorites. From the clues given, can you determine each person's favored 90's pop group, the memorable clothing item they recollected from the 90's, and an activity from that decade that they talked about?\nThe permissible items are: \nPop Group: ['Hanson', 'NSYNC', 'Take That', 'Spice Girls', 'Backstreet Boys']\nClothing: ['Neon Tracksuits', 'Denim Overalls', 'Platform Sneakers', 'Puffer Vests', 'Jelly Sandals']\nActivity: ['Pogo Balls', 'Slap Bracelets', 'Tamagotchis', 'Platform Sneakers', 'Velcro Paddle Ball', 'Skip-It']\nName: ['Angela', 'Mary', 'Slap Bracelets', 'Astrid']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Fiona wasn't the one to bring up the topic of platform sneakers nor Pogo Balls; nor were these two topics introduced by the same person. It was agreed that no one was able to use a Pogo Ball back in the 90's, but they all tried and laughed a lot in the process."
+        },
+        {
+            "id": 2,
+            "text": "The five unique ladies are Mary, the one who most loved Take That, the one who fondly remembers chunky platform sneakers, the one who brought up denim overalls (and showed everyone an embarrassing old picture on her phone), and the one who fondly reminisced about the days of playing with a Velcro Paddle Ball set in her backyard."
+        },
+        {
+            "id": 3,
+            "text": "Astrid was either the Spice Girls fan or the Hanson fan."
+        },
+        {
+            "id": 4,
+            "text": "Of Take That and the Backstreet Boys, one was Angela's favorite 90's group and the other was worshipped by the lady who reminded her friends of the once coveted clear jelly sandals with glitter."
+        },
+        {
+            "id": 5,
+            "text": "The Backstreet Boys fan is either the one who remarked about puffer vests or Skye."
+        },
+        {
+            "id": 6,
+            "text": "The one who remembered the jelly sandals was not the same person who spoke of Tamagotchis nor Pogo Balls."
+        },
+        {
+            "id": 7,
+            "text": "Skip-It was once loved by Mary - the most coordinated of the group - who spoke of the hopping ankle toy excitedly, mentioning that she might still have one in her parents garage. She wasn't a Hanson fan though, and was glad when her friends finally stopped singing \"MMMBop\"."
+        },
+        {
+            "id": 8,
+            "text": "It was no surprise that the Spice Girls fan brought up her former love of platform sneakers."
+        },
+        {
+            "id": 9,
+            "text": "The Slap Bracelets were recalled by one of the friends whose name begins with A."
+        },
+        {
+            "id": 10,
+            "text": "Of Fiona and the NSYNC mega-fan, one was discussing brightly colored neon tracksuits and the other shared that she misses Tamagotchis (because they're so much easier to look after than any of her current responsibilities!)."
+        },
+        {
+            "id": 11,
+            "text": "Astrid wasn't the one to mention the Velcro Paddle Ball sets; in fact she wasn't sure what the ladies were talking about and had to do a quick search on her phone."
+        },
+        {
+            "id": 12,
+            "text": "The Backstreet Boys fan was not responsible for the conversation topics of Skip-It nor Slap Bracelets."
+        }
+    ]
+}

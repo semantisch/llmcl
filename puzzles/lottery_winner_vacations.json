@@ -1,0 +1,53 @@
+{
+    "description": "Five recent lottery winners are each planning an overseas trip to celebrate their win! Can you determine the person who won each jackpot amount, the destination they are travelling to, the duration of their trip, and the special perk they each decided to splash out on to enjoy their good fortune?\nThe permissible items are: \nName: ['Andrew', 'Gillian', 'Mark', 'Delilah', 'Amie']\nDestination: ['Hawaii', 'St Lucia', 'Fiji', 'France', 'Japan']\nPerk: ['St Lucia', 'Chauffeur', '1st Class Seat', 'Personal Guide', 'Health Retreat', 'Fancy Hotel']\nTrip Length: ['1 month', '2 weeks', '1st Class Seat', '3 months', '3 weeks', '2 months']\nWin: ['$4,000,000', '$2,000,000', '$5,000,000', '2 weeks']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Delilah chose to fulfill her lifelong dream of flying first class."
+        },
+        {
+            "id": 2,
+            "text": "The person who is staying away the longest has splashed out on a fancy hotel with every luxury available! They might have thought twice if they had the smallest win, but that was someone else."
+        },
+        {
+            "id": 3,
+            "text": "The person with the largest win sought out the most expensive health retreat he or she could find, and looks forward to daily massages."
+        },
+        {
+            "id": 4,
+            "text": "Delilah won $1,000,000 less than the winner who is destined for Hawaii."
+        },
+        {
+            "id": 5,
+            "text": "The person with the largest win hates traveling to and from a destination and thought it a waste of time going away any less than a month."
+        },
+        {
+            "id": 6,
+            "text": "The shortest trip will be undertaken by the person travelling to France."
+        },
+        {
+            "id": 7,
+            "text": "Mark can't wait to go island hopping in Fiji with his fiance."
+        },
+        {
+            "id": 8,
+            "text": "Andrew is excited to be getting away from it all for 3 weeks."
+        },
+        {
+            "id": 9,
+            "text": "Mark won less than the person who is hiring a personal tour guide at their destination."
+        },
+        {
+            "id": 10,
+            "text": "Amie won less than the person heading to Japan, but more than the person going away for exactly 2 months."
+        },
+        {
+            "id": 11,
+            "text": "Andrew didn't win exactly $5,000,000."
+        },
+        {
+            "id": 12,
+            "text": "The St Lucia bound winner won $1,000,000 less than the person hiring a chauffeur."
+        }
+    ]
+}

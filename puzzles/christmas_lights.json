@@ -1,0 +1,49 @@
+{
+    "description": "Christmas is approaching and the friendly neighborhood of Bloom Street has just had their annual competition for the house with the best Christmas lights display. The same family usually win the top prize year after year, but this Christmas they had some fierce competition with newcomers to the street who have a business selling high-end Christmas decorations! Can you determine the street number of each family (identified by their surname), where they placed in the competition, and the theme of their lights display?\nThe permissible items are: \nFamily: ['The Coopers', 'The Smiths', 'The Adlers', 'The Shaws', 'The Carters']\nPosition: ['5th', '1st', '3rd', '2nd', '4th']\nTheme: ['Nativity Scene', 'Santas Sleigh', '1st', 'Christmas in Vegas', 'Gingerbread House', 'Winter Wonderland']\nStreet Number: ['Gingerbread House', 'No. 14', 'No. 12', 'No. 15']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The Adlers are into their fifteenth year living at No. 10 Bloom Street, and they love the community spirit."
+        },
+        {
+            "id": 2,
+            "text": "Neither the family who came first nor the Carters live at No. 15."
+        },
+        {
+            "id": 3,
+            "text": "Of the Smiths and the family who won 3rd prize, one family lives at No. 12 and the other family lives at No. 15."
+        },
+        {
+            "id": 4,
+            "text": "When looking at the street numbers, the Winter Wonderland display was at the house number immediately after the home with the Christmas In Vegas display (which was made complete with an old slot machine on the lawn!)"
+        },
+        {
+            "id": 5,
+            "text": "The residents of No. 14 Bloom Street achieved a better result in the competition than the family at No. 12."
+        },
+        {
+            "id": 6,
+            "text": "The Shaws are either the family in 1st place, or the family with the Gingerbread House display."
+        },
+        {
+            "id": 7,
+            "text": "The house with the Nativity Scene has a larger street number than the house that won 1st place."
+        },
+        {
+            "id": 8,
+            "text": "The Coopers didn't mind coming in 4th place, it's just a bit of fun for the children on the street."
+        },
+        {
+            "id": 9,
+            "text": "The Gingerbread House was a very elaborate colorful display that scored better than Winter Wonderland."
+        },
+        {
+            "id": 10,
+            "text": "Winter Wonderland and Christmas In Vegas belonged to the houses consecutively after No. 14. Not necessarily in that order, though."
+        },
+        {
+            "id": 11,
+            "text": "The Nativity Scene was a labor of love (pun intended) that took many, many hours to complete. It placed third in the competition."
+        }
+    ]
+}

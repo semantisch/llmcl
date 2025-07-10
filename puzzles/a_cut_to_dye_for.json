@@ -1,0 +1,33 @@
+{
+    "description": "Rachel runs a hair salon in an outer city suburb of Brisbane, Australia. Today is looking to be a quiet day, with only 5 appointments shared among multiple staff. Each client will be having a different treatment, including a blonde-toned balayage and a siren red color. Can you match the clients with their appointment time and treatment?\nThe permissible items are: \nName: ['Fiona', 'Maddy', 'Gayle', 'Stephanie', 'Alison']\nTreatment: ['Color', 'Balayage', 'Blow Dry', 'Straightening', 'Cut']\nTime: ['1:00pm', 'Cut', '11:00am', '10:00am']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Alison is having her hair professionally straightened for a fresh look before an important work event."
+        },
+        {
+            "id": 2,
+            "text": "Of Fiona and the 10:00am client, one is getting the color and the other is booked in for balayage."
+        },
+        {
+            "id": 3,
+            "text": "Stephanie's appointment (which is not for balayage) is sometime before Maddy's, and sometime after the person getting the color."
+        },
+        {
+            "id": 4,
+            "text": "The blow dry is scheduled for 1 hour before the cut."
+        },
+        {
+            "id": 5,
+            "text": "Gayle's appointment is scheduled for 1 hour prior to the straightening appointment."
+        },
+        {
+            "id": 6,
+            "text": "Gayle is not the one having her hair colored red."
+        },
+        {
+            "id": 7,
+            "text": "Fiona's appointment is in the morning."
+        }
+    ]
+}

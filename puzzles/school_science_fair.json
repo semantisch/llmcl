@@ -1,0 +1,41 @@
+{
+    "description": "Each student from Maplewood Middle School was required to submit a science project for the recent Science Fair, which ended with a competition for the best project. Can you determine the name of the student each project belonged to, their position in the competition, and what the strength was that the judges believed set their projects apart for a top 5 position?\nThe permissible items are: \nName: ['Emily', 'Charlie', 'Nathaniel', 'Finley', 'Maryanne']\nProject: ['Erupting Volcano', 'Electric Circuit Design', 'Solar System Model', 'Seed Germination Rates', 'Solar Energy Generation']\nStrength: ['Erupting Volcano', 'Great Research', 'Attention To Detail', 'Creativity', 'Clarity', 'Potential Impact']\nPosition: ['Great Research', '3rd', '2nd', '4th']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Of Nathaniel and the student who was applauded for their creativity, one was placed 2nd and the other had the Solar Energy Generation project."
+        },
+        {
+            "id": 2,
+            "text": "Finley placed one position better than the student whose strength was remarked as being their attention to detail."
+        },
+        {
+            "id": 3,
+            "text": "Charlie had the next placing after the student who was lauded for their projects clarity."
+        },
+        {
+            "id": 4,
+            "text": "The five unique students are Charlie, Nathaniel, the one who placed 3rd, the one who showed attention to detail, and the one with the Seed Germination Rates project."
+        },
+        {
+            "id": 5,
+            "text": "The student with the Electric Circuit Design project performed somewhat better in the competition than the student with the Erupting Volcano."
+        },
+        {
+            "id": 6,
+            "text": "Of the student who placed 3rd and the student who won their position based on the potential impact of their project, one is Finley and the other had the Seed Germination Rates project."
+        },
+        {
+            "id": 7,
+            "text": "Of the student who created the Solar System Model and the student who placed 5th, one was praised for their great research and the other is Maryanne."
+        },
+        {
+            "id": 8,
+            "text": "The Solar System Model did not place 2nd."
+        },
+        {
+            "id": 9,
+            "text": "The student who showed attention to detail (thanks to a little help from dad) won the position two places after the student who showed tremendous creativity."
+        }
+    ]
+}

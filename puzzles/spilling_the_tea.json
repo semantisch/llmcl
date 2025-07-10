@@ -1,0 +1,49 @@
+{
+    "description": "Myenda Insurance Group has operated with the same management team for two decades, many of whom are not popular among the company's employees. The staff turnover rate is high, and new employees are not always well vetted! Between controversial decisions and inconsistent treatment of employees, rumors are always circulating in the head office and employees make it through the day by exchanging the latest gossip. This week, five employees in various positions have been discussed at length, each for a unique reason. Can you determine which employee started each rumor, who it was about (the subject), the subject's position in the company, and the topic of the rumor?\nThe permissible items are: \nSubject Name: ['Rahul', 'Estelle', 'Isabel', 'Tomas', 'Cassandra']\nSubject Position: ['HR Manager', 'Claims Examiner', 'Claims Adjuster', 'Auditor', 'Account Manager']\nTopic: ['Unfair Pay Raise', 'Affair With Boss', 'Lied On Resume', 'Stealing Lunches', 'Leaving Early', 'Account Manager']\nStarted By: ['Unfair Pay Raise', 'Lydia', 'Quinn', 'Noah']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The five rumors are the one about an unfair pay raise, the one about the Auditor, the one about Cassandra, the one started by Quinn, and the one about the Account Manager."
+        },
+        {
+            "id": 2,
+            "text": "Noah does not get along well with Tomas, but due to their desks being close he overheard some juicy information when Tomas was on the phone to his girlfriend this week. Noah just had to spill the tea to his favorite colleagues!"
+        },
+        {
+            "id": 3,
+            "text": "Lydia wasn't the one to start the rumor about the HR Manager stealing lunches, but she wasn't surprised when she heard it. Yesterday, her delicious leftover beef ragout mysteriously disappeared from the staff fridge. Its scent still lingered from the microwave... right before the manager's lunch meeting."
+        },
+        {
+            "id": 4,
+            "text": "It somehow made it through the grapevine that a certain staff member had received a generous pay raise, right at a time where other staff had been told of a pay freeze! The rumored recipient is neither Estelle nor Isabel."
+        },
+        {
+            "id": 5,
+            "text": "Neither Lydia nor Quinn were responsible for the gossip about Isabel."
+        },
+        {
+            "id": 6,
+            "text": "Helena is either the one who started the rumor about Rahul or the one who started the rumor about the Claims Adjuster."
+        },
+        {
+            "id": 7,
+            "text": "Usually management don't get involved in the gossip that makes its way around the office, but when they heard that Ryan had been suggesting to others that a certain staff member was having an affair with their boss, a company-wide email went out and Ryan was given a warning."
+        },
+        {
+            "id": 8,
+            "text": "Tomas is neither a Claims Adjuster nor a Claims Examiner."
+        },
+        {
+            "id": 9,
+            "text": "One talking point for the week was that one of the staff had been observed sneaking out from work early every day for the past month. This was neither Estelle nor the Account Manager."
+        },
+        {
+            "id": 10,
+            "text": "Lydia did not talk about the Claims Adjuster."
+        },
+        {
+            "id": 11,
+            "text": "Of the person rumored to have lied on their resume and the Auditor, one is Isabel and the other was first talked about by Noah."
+        }
+    ]
+}

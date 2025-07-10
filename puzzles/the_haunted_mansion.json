@@ -1,0 +1,41 @@
+{
+    "description": "Five ghost hunters have just spent time in an allegedly haunted mansion in Whispering Pines, investigating paranormal activity reported by the new owner. Once inside the expansive home, which boasts 20 rooms, the ghost hunters split up and each had a chilling experience! From the clues provided, can you determine the experience each person had and the room they were in at the time? The ghost hunters are identified by code names they created for each other, just for fun.\nThe permissible items are: \nExperience: ['Strange Shadows', 'Book Fell', 'Shoulder Touch', 'Footsteps', 'Eerie Voices']\nRoom: ['Living Room', 'Wine Cellar', 'Main Bedroom', 'Hallway', 'Attic']\nCode Name: ['Spirit Snoopervisor', 'Shadow Chaser', 'Attic', 'Specter Sleuth']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Shadow Chaser didn't see any spooky shadows during his time in the house. The shadows were not seen in the attic."
+        },
+        {
+            "id": 2,
+            "text": "Neither the ghost hunter who saw a book fall from a shelf nor Mr Apparition had their ghostly experiences in the attic."
+        },
+        {
+            "id": 3,
+            "text": "It was either Spirit Snoopervisor or Hairy Scary who had a memorable experience in the wine cellar - which was filled floor to ceiling with antiques and collectors items, but no wine!"
+        },
+        {
+            "id": 4,
+            "text": "While taking some time in the main bedroom to text his wife about dinner, one startled investigator heard slow moving footsteps on the squeaky stairs that he confirmed could not have come from any of the others in the house."
+        },
+        {
+            "id": 5,
+            "text": "Hairy Scary earned her name due to her long, jet-black hair. While she may have looks akin to those of an actress from a Japanese horror film, she was entirely unprepared for the shock of hearing eerie voices on the radio device she was using!"
+        },
+        {
+            "id": 6,
+            "text": "One man shuddered when later telling the tale of how he felt a hand touch his shoulder, only to turn and find no one there! This did not occur in the wine cellar nor the living room."
+        },
+        {
+            "id": 7,
+            "text": "Compared to one of his colleagues, Mr Apparition had a very ordinary time when he passed through the hallway."
+        },
+        {
+            "id": 8,
+            "text": "Specter Sleuth maintains that the room was very still and he was nowhere near the bookcase when the book suddenly fell to the floor. It was a book about ornithology, which he found a little ironic given that it virtually flew by itself."
+        },
+        {
+            "id": 9,
+            "text": "Of the event that occurred in the hallway and the sighting of strange shadows, one was experienced by Spirit Snoopervisor and the other was experienced by Shadow Chaser."
+        }
+    ]
+}
