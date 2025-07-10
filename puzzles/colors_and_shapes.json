@@ -1,0 +1,41 @@
+{
+    "description": "Nina is a kindergarten teacher, and today the children are learning about colors and shapes. She has hidden around the classroom a unique number of each of five shapes her class are to find and count. Each type of shape is in a particular color. Can you identify from the clues which color each shape is and how many of them are hidden in the classroom?\nThe permissible items are: \nColor: ['Red', 'Green', 'Brown', 'Yellow', 'Purple']\nCount: ['6', '4', '3', '7', '5']\nShape: ['Triangle', 'Square', 'Hexagon', '3']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The triangles are the purple shapes. There are less than 6 triangles."
+        },
+        {
+            "id": 2,
+            "text": "Neither the squares nor the hexagons are green."
+        },
+        {
+            "id": 3,
+            "text": "The number of circles is not 4. The circles are not red or yellow."
+        },
+        {
+            "id": 4,
+            "text": "There are less octagons than there are yellow shapes."
+        },
+        {
+            "id": 5,
+            "text": "There are either 6 or 7 of the brown shapes."
+        },
+        {
+            "id": 6,
+            "text": "The number of yellow shapes is greater than 4."
+        },
+        {
+            "id": 7,
+            "text": "The smallest number of shapes hidden in the classroom applies to the red shapes."
+        },
+        {
+            "id": 8,
+            "text": "The hexagons are not the yellow shapes."
+        },
+        {
+            "id": 9,
+            "text": "There are less brown shapes than green shapes."
+        }
+    ]
+}

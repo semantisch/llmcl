@@ -617,7 +617,16 @@ Return JSON with this structure for MULTIPLE clues:
       ]
     }},
     {{
-      "sub_id": "2c",
+      "sub_id": "2d",
+      "type": "same",
+      "description": "Entity A has Property Y",
+      "objects": [
+        {{"position": 1, "attribute": "type_1", "value": "entity_a"}},
+        {{"position": 2, "attribute": "property", "value": "property_y"}}
+      ]
+    }},
+    {{
+      "sub_id": "5a",
       "type": "next",
       "description": "Entity A and Entity B are adjacent in ordering",
       "objects": [

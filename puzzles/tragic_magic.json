@@ -1,0 +1,57 @@
+{
+    "description": "Jimmy Wonder is a magician in training who travels to large county fairs and other events, working in a duo with his magician father. Jimmy is still learning the (trick) ropes and has been more of an assistant - until the past traveling season when his father suffered an injury, and Jimmy had to take on the show solo! A little out of his comfort zone, the shows have not been going smoothly. From the clues provided, can you determine which trick went wrong at each location, the outcome, and the name of the audience volunteer who was involved?\nThe permissible items are: \nTrick: ['Floating Mid-Air', 'Card Trick', 'Rope Trick', 'Mindreading', 'Rabbit In A Hat']\nVolunteer: ['Pierce', 'Sheena', 'Joanna', 'Kari', 'Marc']\nOutcome: ['Kari', 'Audience Booed', 'Secret Revealed', 'Asked To Leave', 'Injured Volunteer', 'Refunds Demanded']\nLocation: ['Audience Booed', 'Louisville', 'Dayton', 'Memphis']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "On one occasion, things got so bad that Jimmy was asked to leave the venue! This was not the show where the floating mid-air trick went wrong (which wasn't the trick Pierce volunteered for)."
+        },
+        {
+            "id": 2,
+            "text": "Mindreading is a definite no-go for Sheena - before Jimmy's show she told her friend that she would rather keep her thoughts to herself and would never put herself forward for such nonsense!"
+        },
+        {
+            "id": 3,
+            "text": "Of the shows where Joanna and Marc volunteered, one was in Memphis and the other ended with audience members demanding refunds!"
+        },
+        {
+            "id": 4,
+            "text": "Of the show where the card trick went wrong and the show where the audience booed, one was in Spencer and the other is the one where Joanna volunteered."
+        },
+        {
+            "id": 5,
+            "text": "Kari volunteered to help with one of Jimmy's tricks with the aim of creating fun memories on a day out with her new husband. The last thing she expected was an injury that would require stitches! But she laughed it off as a day they would not forget in some time."
+        },
+        {
+            "id": 6,
+            "text": "The moment that all went wrong in Dayton was either during the rope trick or during the trick that led to multiple audience members demanding refunds!"
+        },
+        {
+            "id": 7,
+            "text": "The volunteer of note in Louisville was either Marc or Joanna."
+        },
+        {
+            "id": 8,
+            "text": "Neither Joanna, Sheena, nor Kari volunteered for a card trick."
+        },
+        {
+            "id": 9,
+            "text": "Jimmy was nervous before the Tulsa show, and had a bit too much to drink before going onstage. Pulling a rabbit out of a hat was the trick where it all came undone - he stumbled, tripped, and accidentally hurled the rabbit into the audience! Neither the rabbit nor the volunteer was harmed."
+        },
+        {
+            "id": 10,
+            "text": "The floating mid-air trick went very well in Spencer, but another trick did not."
+        },
+        {
+            "id": 11,
+            "text": "A blunder led to Jimmy accidentally revealing the secret behind one of his tricks! This was not in Tulsa."
+        },
+        {
+            "id": 12,
+            "text": "The Dayton show, the show where the floating mid-air trick went wrong, the show where the card trick went wrong, and the show where the audience booed are all different shows."
+        },
+        {
+            "id": 13,
+            "text": "Marc wasn't a volunteer at the show where the audience booed."
+        }
+    ]
+}

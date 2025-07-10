@@ -1,0 +1,45 @@
+{
+    "description": "Last night Amanda hosted a jigsaw puzzle night among friends, with a little friendly competition. There were five jigsaw puzzle to complete, one per couple, with a race against the others to be the fastest to finish. Each pair was assigned a celebrity style couple nickname, a hybrid of their two names. From the clues given, can you determine the position each couple placed, how many pieces were in their puzzle, and what their puzzle picture was?\nThe permissible items are: \nCouple: ['Hark', 'Philody', 'Dannifer', 'Geranda', 'Benevieve']\nPuzzle Size: ['1200 pieces', '700 pieces', '800 pieces', '900 pieces', '1000 pieces']\nPicture: ['700 pieces', 'Moroccan Rooftops', 'Cottage Garden', 'Taj Mahal', 'African Safari', 'Tower Bridge']\nPosition: ['3rd', 'African Safari', '2nd', '4th']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The Tower Bridge puzzle did not have the most pieces."
+        },
+        {
+            "id": 2,
+            "text": "Of the couple with the 700 piece puzzle and the couple who came 3rd, one is Benevieve and the other had the Cottage Garden puzzle."
+        },
+        {
+            "id": 3,
+            "text": "Phil and Melody had a puzzle with at least 1000 pieces."
+        },
+        {
+            "id": 4,
+            "text": "Four of the couples are: the couple with the 700 piece puzzle, the couple who came 5th, Geranda, and the pair with the African Safari puzzle."
+        },
+        {
+            "id": 5,
+            "text": "Harry and Mark did not come 2nd."
+        },
+        {
+            "id": 6,
+            "text": "If Philody came 2nd, then the couple with the Cottage Garden puzzle (which is not Philody) did not come 1st. If Benevieve had the 700 piece puzzle, then the 1200 piece puzzle (which is not Benevieve's) was not of the Moroccan Rooftops."
+        },
+        {
+            "id": 7,
+            "text": "Gerard and Amanda did not come 1st nor 2nd."
+        },
+        {
+            "id": 8,
+            "text": "The couple who came 1st had a puzzle with 100 pieces less than Geranda, who had a puzzle with 100 pieces less than the Cottage Garden puzzle."
+        },
+        {
+            "id": 9,
+            "text": "The Moroccan Rooftops puzzle was completed before the Tower Bridge puzzle, but after the Taj Mahal puzzle."
+        },
+        {
+            "id": 10,
+            "text": "Harry and Mark were quicker than Dan and Jennifer, but not as fast as Ben and Genevieve."
+        }
+    ]
+}

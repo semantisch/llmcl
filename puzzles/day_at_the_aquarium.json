@@ -1,0 +1,37 @@
+{
+    "description": "Two families with their combined 5 young children are about to have a fun day out at the aquarium! Each child has a favorite aquatic animal that will be featured in a scheduled talk or show they plan to attend. From the clues provided, can you determine the favorite sea creature of each child, the event time of its talk or show, and the location in the aquarium the animal can be found?\nThe permissible items are: \nAnimal: ['Manta Rays', 'Sharks', 'Dolphins', 'Clown Fish', 'Octopuses']\nEvent Time: ['10:00am', '1:00pm', '2:00pm', '11:00am', '2:45pm']\nLocation: ['Deep Sea Den', '10:00am', 'Coral Reef', 'Overhead Gallery', 'Dolphinarium', 'Tropical Tank']\nChild: ['Liam', 'Tropical Tank', 'Noah', 'Abigail']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The aquarium's visitors weren't too surprised to learn that the dolphins are kept in the Dolphinarium! The dolphin show isn't at 1:00pm."
+        },
+        {
+            "id": 2,
+            "text": "Sinead, the girl who really wants to see clown fish, is the oldest of the children."
+        },
+        {
+            "id": 3,
+            "text": "Of the 1:00pm event and the event at the Coral Reef area, one is the event Ezra wants to attend and the other is the octopus talk."
+        },
+        {
+            "id": 4,
+            "text": "The parents had a debate over whether 'octopuses' or 'octopi' is the correct plural ahead of the octopus talk that is scheduled for 10:00am. They are not kept in the Deep Sea Den."
+        },
+        {
+            "id": 5,
+            "text": "Ezra has been to the aquarium before and is most looking forward to the talk taking place in the Deep Sea Den. This is not where the Manta Rays are found."
+        },
+        {
+            "id": 6,
+            "text": "The group are attending the last talk of the day for Liam's benefit, who is a big fan of these sea creatures."
+        },
+        {
+            "id": 7,
+            "text": "The talk or show Noah wants to see is scheduled for 1 hour earlier than Abigail's event (which is not about octopuses)."
+        },
+        {
+            "id": 8,
+            "text": "The last talk of the day is in the Overhead Gallery area."
+        }
+    ]
+}

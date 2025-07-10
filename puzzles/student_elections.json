@@ -1,0 +1,41 @@
+{
+    "description": "The votes are in at Eldridge High School, and the student with the most votes is about to be announced as student president! There were 2 female candidates (Amy and Brooklyn) and the other 3 were male. From the clues provided, can you determine the first and last name of the five candidates, the number of votes they received, and the pledge they made to their fellow students to fulfill should they become student president?\nThe permissible items are: \nLast Name: ['Burke', 'Goodwin', 'Spicer', 'Hunt', 'Brennan']\nVotes: ['43', '71', '18', '38', '22']\nPledge: ['Student Safety', '71', 'Suggestion Box', 'Bullying Action', 'School Dance', 'Healthier Food']\nFirst Name: ['Hugh', 'Leon', 'School Dance', 'Brooklyn']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Unfortunately running on a platform of replacing school cafeteria hot dogs with salads and soda with fresh juices didn't prove to be as popular as the candidate thought! Her vote count was one of the bottom two."
+        },
+        {
+            "id": 2,
+            "text": "The five students are Amy, Brooklyn, the one promising increased student safety, the one with the last name of Goodwin, and the one who received 18 votes."
+        },
+        {
+            "id": 3,
+            "text": "Amy Burke received an odd number of votes."
+        },
+        {
+            "id": 4,
+            "text": "Of Brooklyn and Hugh, one is a Brennan and the other got 22 votes."
+        },
+        {
+            "id": 5,
+            "text": "Erryl (whose surname is not Hunt) did not receive the most votes."
+        },
+        {
+            "id": 6,
+            "text": "The Brennan student received less votes than Amy."
+        },
+        {
+            "id": 7,
+            "text": "The Spicer student (who is not Leon) ran on a platform of giving all students a voice, by promising to take seriously any achievable requests placed in their proposed Suggestion Box. They didn't win the election."
+        },
+        {
+            "id": 8,
+            "text": "The pledge to bring back the school dance was popular, and the student who promised it garnered exactly 43 votes. The school dance had returned for only one year after the pandemic paused it - it was promptly cancelled again after students misbehaved so much the police had to be called."
+        },
+        {
+            "id": 9,
+            "text": "Leon was not voted in as Student President."
+        }
+    ]
+}

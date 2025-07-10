@@ -1,0 +1,65 @@
+{
+    "description": "Yesterday five candidates interviewed for a role at local printing company Ink Incorporated, however none of them are feeling good about how their interview went after some unfortunate and embarrassing events occurred! From the clues given, can you determine each persons appointment time, the position they applied for, and the event that occurred that has them unsure of their chances at landing the job?\nThe permissible items are: \nName: ['Carlos', 'Grant', 'Meera', 'Kristian', 'Sally']\nPosition: ['Production Lead', 'IT Team Leader', 'Executive Assistant', 'Graphic Designer', 'Marketing Manager']\nEvent: ['Fell Asleep', 'Spilled Coffee', 'Executive Assistant', 'Caught In A Lie', 'Forgot Name', 'Wore Slippers']\nTime: ['12:00pm', '11:00am', '1:00pm', 'Forgot Name']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Of Carlos and the person with the last appointment of the day, one was unfortunate enough to fall asleep during the interview and the other was applying for the IT Team Leader position."
+        },
+        {
+            "id": 2,
+            "text": "The five unique candidates are the person applying for the Production Lead role, the person who had the 11:00am appointment, the person who forgot their own name during the interview, the person applying for the Executive Assistant role, and Sally."
+        },
+        {
+            "id": 3,
+            "text": "The candidate with the 12:00pm interview, Grant, and the person applying for IT Team Leader are all different people."
+        },
+        {
+            "id": 4,
+            "text": "The person applying to be the company's newest Graphic Designer is not the candidate who spilled coffee all over a very expensive rug."
+        },
+        {
+            "id": 5,
+            "text": "Kristian was so nervous about his interview that upon shaking hands with the panel and exchanging introductions, he forgot his own name! Sadly, it was downhill from there."
+        },
+        {
+            "id": 6,
+            "text": "Meera had her interview at 1:00pm."
+        },
+        {
+            "id": 7,
+            "text": "One candidate was still recovering from a big night out the night before and fell asleep during his or her interview. That person's interview was earlier in the day than the person who was caught in a lie, having grossly exaggerated their experience on their resume."
+        },
+        {
+            "id": 8,
+            "text": "The Graphic Designer role was interviewed 2 hours before the IT Team Leader role."
+        },
+        {
+            "id": 9,
+            "text": "Carlos went for the Marketing Manager position, but is doubtful he'll get it and has since applied elsewhere."
+        },
+        {
+            "id": 10,
+            "text": "The person who forgot their own name and the person who spilled coffee had consecutive appointments, but not necessarily in that order."
+        },
+        {
+            "id": 11,
+            "text": "The Graphic Designer position was interviewed at 12:00pm."
+        },
+        {
+            "id": 12,
+            "text": "Grant was running late for his interview and was in such a rush to leave the house that he didn't notice he was still in his pink fluffy slippers."
+        },
+        {
+            "id": 13,
+            "text": "The person who fell asleep during their interview was not Sally nor Meera."
+        },
+        {
+            "id": 14,
+            "text": "The person who forgot their own name had their interview sometime before the person who was caught in a lie."
+        },
+        {
+            "id": 15,
+            "text": "The candidate who turned up with a coffee from the cafe next door and promptly spilled it on a rug was not applying for the Production Lead position."
+        }
+    ]
+}
