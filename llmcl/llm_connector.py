@@ -474,10 +474,61 @@ PLACEHOLDER GUIDELINES:
 - "unknown_X": For values that exist but aren't specified (e.g., missing years)
 - "derived_X": For values defined by constraints (e.g., "property with specific constraint")"""
 
+        example_icl = """We provide an example problem with the intended return values:
+
+EXAMPLE DESCRIPTION:
+Wine tour company "Between The Vines" is taking a group of 10 friends on a day trip to enjoy four local award winning wineries. From the clues provided, can you identify the order in which they will stop at each winery, the year the winery was established, and the variety of wine each winery recently won an award for?
+
+EXAMPLE CLUES:
+1) The four wineries are Vindictive Vines, the one who won an award for their Shiraz, the one established in 1969, and the one that will be visited 3rd.
+2) Of Chateau Cork and the winery established in 1974, one has the award winning Sauvignon Blanc and the other will be visited 2nd.
+3) Boozy Bottling was not established between 1973 and 1977.
+4) The first winery to be visited won an award for a wine variety that has a single word name.
+5) The winery established in 1978 will be visited either immediately before or immediately after the winery with the award winning Shiraz.
+6) Of the winery who won an award for their Tempting Tempranillo and the winery known as Goodness Grapecious, one was established in 1978 and the other is the first destination of the wine tour.
+7) The last winery on the tour was established 5 years after the first winery on the tour.
+
+EXAMPLE SOLUTION:
+{
+  "attributes": {
+    "order": [
+      "1st",
+      "2nd",
+      "3rd",
+      "4th"
+    ],
+    "winery": [
+      "Boozy Bottling",
+      "Chateau Cork",
+      "Goodness Grapecious",
+      "Vindictive Vines",
+    ],
+    "award winner": [
+      "Tempranillo",
+      "Pinot Noir",
+      "Sauvignon Blanc",
+      "Shiraz",
+    ],
+    "year": [
+      "1969",
+      "1974",
+      "1978",
+      "1983",
+    ]
+  },
+  "primary_attribute": "order"
+}
+"""
+
         description = puzzle_data.get('description', '')
         clues_text = '\n'.join([f"{clue['id']}) {clue['text']}" for clue in puzzle_data.get('clues', [])])
         
         user_prompt = f"""Analyze this logic puzzle and extract all attributes and values:
+Extract all attributes and their possible values. Return as JSON.
+{example_icl}
+
+
+Now it is your turn to extract all attributes and values - and return a json:
 
 DESCRIPTION:
 {description}
@@ -485,7 +536,8 @@ DESCRIPTION:
 CLUES:
 {clues_text}
 
-Extract all attributes and their possible values. Return as JSON."""
+SOLUTION:
+"""
 
         messages = [
             {"role": "system", "content": system_prompt},
@@ -642,7 +694,133 @@ EXAMPLES:
 
 - Include "description" to explain each sub-clue's purpose"""
 
-        user_prompt = f"""Convert this clue to ASP format:
+        example_icl = """Convert one clue to JSON format. We provide four example translations first, for another problem:
+
+WE HAVE THE FOLLOWING ATTRIBUTES FOR OUR EXAMPLE:
+{
+  "attributes": {
+    "order": [
+      "1st",
+      "2nd",
+      "3rd",
+      "4th"
+    ],
+    "winery": [
+      "Boozy Bottling",
+      "Chateau Cork",
+      "Goodness Grapecious",
+      "Vindictive Vines",
+    ],
+    "award winner": [
+      "Tempranillo",
+      "Pinot Noir",
+      "Sauvignon Blanc",
+      "Shiraz",
+    ],
+    "year": [
+      "1969",
+      "1974",
+      "1978",
+      "1983",
+    ]
+  },
+  "primary_attribute": "order"
+}
+
+EXAMPLE CLUE 1):  The four wineries are Vindictive Vines, the one who won an award for their Shiraz, the one established in 1969, and the one that will be visited 3rd.
+EXAMPLE CLUE 2): Of Chateau Cork and the winery established in 1974, one has the award winning Sauvignon Blanc and the other will be visited 2nd.
+EXAMPLE CLUE 3): The winery established in 1978 will be visited either immediately before or immediately after the winery with the award winning Shiraz.
+EXAMPLE CLUE 4): The last winery on the tour was established 5 years after the first winery on the tour.
+
+clue(12,same).
+object(12,1,order,1).
+object(12,2,year,(1969;1978)).
+
+clue(13,(less;next)).
+object(13,1,order,1).
+object(13,2,order,4).
+target(13,year).
+
+EXAMPLE SOLUTION:
+{
+    "clues":[
+        {
+          "sub_id": "1a",
+          "type": "diff", 
+          "description": "The four wineries are all different",
+          "objects": [
+            {"position": 1, "attribute": "winery", "value": "vines"},
+            {"position": 2, "attribute": "award winner", "value": "shiraz"},
+            {"position": 3, "attribute": "year", "value": "1969"},
+            {"position": 4, "attribute": "order", "value": "3"}
+          ]
+        },
+        {
+            "sub_id":"2a",
+            "type":"diff",
+            "description":"Chateau cork and winery established in 1974 differ",
+            "objects":[
+                {"position":1, "attribute":"winery","value":"cork"},
+                {"position":2, "attribute":"year","value":"1974"}
+            ]
+        },
+        {
+            "sub_id":"3a",
+            "type":"same",
+            "description":"One of winery cork and established in 1974 must be same as having award blanc",
+            "objects":[
+                {"position":1, "attribute":"winery","value":"cork"},
+                {"position":1, "attribute":"year","value":"1974"},
+                {"position":2, "attribute":"award winner","value":"blanc"}
+            ]
+        },
+        {
+            "sub_id":"4a",
+            "type":"same",
+            "description":"One of winery cork and established in 1974 must be same as having order 2",
+            "objects":[
+                {"position":1, "attribute":"winery","value":"cork"},
+                {"position":1, "attribute":"year","value":"1974"},
+                {"position":2, "attribute":"order","value":"2"}
+            ]
+        },
+        {
+            "sub_id":"5a",
+            "type":"next",
+            "description":"winery established in 1978 will be visited either immediately before or immediately after the winery with the award winning Shiraz",
+            "objects":[
+                {"position":1, "attribute":"year","value":"1978"},
+                {"position":1, "attribute":"award winner","value":"shiraz"}
+            ],
+            "target_attribute": "order"
+        },
+        {
+            "sub_id":"6a",
+            "type":"same",
+            "description":"the first one is either 1969 or 1978",
+            "objects":[
+                {"position":1,"attribute":"order","value":"1"},
+                {"position":2,"attribute":"year","value":"1969"},
+                {"position":2,"attribute":"year","value":"1978"}
+            ]
+        },
+        {
+            "sub_id":"7a",
+            "type":"less",
+            "description":"The last winery is older than the first",
+            "objects":[
+                {"position":1,"attribute":"order","value":"1"},
+                {"position":2,"attribute":"order","value":"4"}
+            ],
+            "target_attribute":"year"
+        }
+    ]
+}
+"""
+
+        user_prompt = f"""{example_icl}
+
+Now it is your turn! Convert this clue to JSON format:
 
 CLUE {clue['id']}: {clue['text']}
 
