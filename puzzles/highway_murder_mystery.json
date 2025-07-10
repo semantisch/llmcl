@@ -1,5 +1,5 @@
 {
-    "description": "A killer is on the run! Police are in hot pursuit, and the fugitive has taken to the woods along a rural highway. Local residents have found evidence of his path, but officers scribbled down bits of information in a rush. Match each piece of evidence to the mile marker where it was found and the witness who found it to help track the killer.\nThe permissible items are: \nEvidence: ['Knife', 'Cigarette Butt', 'Bloodied Shirt', 'Shoe Print', \"Victim's Hair\"]\nWitness: ['Scout Troop', 'Couple', 'Dog Walker', 'Ranger', 'Hiker']\nMile Marker: ['83 Miles', 'Hiker', '85 Miles', '84 Miles']",
+    "description": "A killer is on the run! Police are in hot pursuit, and the fugitive has taken to the woods along a rural highway. Local residents have found evidence of his path, but officers scribbled down bits of information in a rush. Match each piece of evidence to the mile marker where it was found and the witness who found it to help track the killer.\nThe permissible items are: \nEvidence: ['Cigarette Butt', \"Victim's Hair\", 'Bloodied Shirt', 'Knife', 'Shoe Print']\nWitness: ['Scout Troop', 'Ranger', 'Dog Walker', 'Hiker', 'Couple']\nMile Marker: ['82 Miles', '84 Miles', '83 Miles', '85 Miles', '86 Miles']",
     "clues": [
         {
             "id": 1,

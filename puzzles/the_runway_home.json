@@ -1,5 +1,5 @@
 {
-    "description": "Five panicked travelers are running through Sydney International Airport in a desperate rush to board their flights in time! They are all heading home for the holidays but were delayed by an incident at the security checkpoint. From the information given, can you connect the names of each passenger with their gate number, departure time, and destination?\nThe permissible items are: \nGate No.: ['15', '19', '20', '10', '17']\nDepart Time: ['6:12pm', '6:14pm', '6:09pm', '6:05pm', '6:07pm']\nDestination: ['Tokyo', 'Auckland', '6:05pm', 'Singapore', 'Jakarta', 'Manila']\nName: ['Cindy', 'Auckland', 'Ken', 'Antonio']",
+    "description": "Five panicked travelers are running through Sydney International Airport in a desperate rush to board their flights in time! They are all heading home for the holidays but were delayed by an incident at the security checkpoint. From the information given, can you connect the names of each passenger with their gate number, departure time, and destination?\nThe permissible items are: \nGate No.: ['15', '19', '20', '17', '10']\nDepart Time: ['6:05pm', '6:09pm', '6:14pm', '6:12pm', '6:07pm']\nDestination: ['Singapore', 'Tokyo', 'Manila', 'Jakarta', 'Auckland']\nName: ['Kai', 'Cindy', 'Ken', 'Antonio', 'Lin']",
     "clues": [
         {
             "id": 1,

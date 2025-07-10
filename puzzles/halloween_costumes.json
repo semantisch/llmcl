@@ -1,5 +1,5 @@
 {
-    "description": "It is the week of Halloween and Elijah has five spooky gatherings to attend that will each require a costume! He has decided to find a wide variety of costumes, one for each occasion - the first being on Tuesday. Can you match the day of each event with the costume Elijah is planning?\nThe permissible items are: \nEvent: ['Car Club Party', 'Theater Dinner', \"Neighbor's BBQ\", 'Friends House Party', 'Work Party']\nCostume: ['King of Egypt', '80s Exercise Instructor', 'Zorro', 'Bob Ross', 'Garden Gnome']\nDay: ['Bob Ross', 'Thursday', 'Wednesday', 'Friday']",
+    "description": "It is the week of Halloween and Elijah has five spooky gatherings to attend that will each require a costume! He has decided to find a wide variety of costumes, one for each occasion - the first being on Tuesday. Can you match the day of each event with the costume Elijah is planning?\nThe permissible items are: \nEvent: ['Friends House Party', 'Theater Dinner', 'Work Party', \"Neighbor's BBQ\", 'Car Club Party']\nCostume: ['Zorro', 'King of Egypt', '80s Exercise Instructor', 'Garden Gnome', 'Bob Ross']\nDay: ['Wednesday', 'Thursday', 'Friday', 'Saturday', 'Tuesday']",
     "clues": [
         {
             "id": 1,

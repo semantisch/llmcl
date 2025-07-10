@@ -1,5 +1,5 @@
 {
-    "description": "Mrs McPhail's fourth grade class have been learning how to grow vegetables in a veggie plot behind the classroom. The class has been split into groups for this activity, each group assigned with the task of taking care of two types of vegetable. From the clues provided can you determine which two vegetables each group is in charge of?\nThe permissible items are: \nVegetable 1: ['Carrots', 'Cucumbers', 'Lettuce', 'Broccoli', 'Beans']\nVegetable 2: ['Spring Onion', 'Zucchini', 'Cabbage', 'Snow Peas', 'Spinach']\nGroup: ['Group 4', 'Spinach', 'Group 3', 'Group 2']",
+    "description": "Mrs McPhail's fourth grade class have been learning how to grow vegetables in a veggie plot behind the classroom. The class has been split into groups for this activity, each group assigned with the task of taking care of two types of vegetable. From the clues provided can you determine which two vegetables each group is in charge of?\nThe permissible items are: \nVegetable 1: ['Broccoli', 'Lettuce', 'Cucumbers', 'Carrots', 'Beans']\nVegetable 2: ['Snow Peas', 'Cabbage', 'Spinach', 'Zucchini', 'Spring Onion']\nGroup: ['Group 1', 'Group 3', 'Group 5', 'Group 4', 'Group 2']",
     "clues": [
         {
             "id": 1,

@@ -1,5 +1,5 @@
 {
-    "description": "Wine tour company \"Between The Vines\" is taking a group of 10 friends on a day trip to enjoy four local award winning wineries. From the clues provided, can you identify the order in which they will stop at each winery, the year the winery was established, and the variety of wine each winery recently won an award for?\nThe permissible items are: \nWinery: ['Vindictive Vines', 'Chateau Cork', 'Goodness Grapecious', 'Boozy Bottling']\nAward Winner: ['Tempranillo', 'Pinot Noir', 'Shiraz', 'Sauvignon Blanc']\nYear: ['1974', '1983', 'Tempranillo', '1969', '1978']\nOrder: ['3rd', '1969', '2nd']",
+    "description": "Wine tour company \"Between The Vines\" is taking a group of 10 friends on a day trip to enjoy four local award winning wineries. From the clues provided, can you identify the order in which they will stop at each winery, the year the winery was established, and the variety of wine each winery recently won an award for?\nThe permissible items are: \nWinery: ['Chateau Cork', 'Goodness Grapecious', 'Vindictive Vines', 'Boozy Bottling']\nAward Winner: ['Pinot Noir', 'Shiraz', 'Tempranillo', 'Sauvignon Blanc']\nYear: ['1978', '1983', '1969', '1974']\nOrder: ['4th', '2nd', '1st', '3rd']",
     "clues": [
         {
             "id": 1,
