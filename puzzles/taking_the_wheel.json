@@ -1,0 +1,29 @@
+{
+    "description": "Dianne, a driver's license examiner, has just assessed five anxious new drivers during their driving tests. While some successfully passed, others committed too many infractions and did not qualify for their licenses today. Each person was marked down for at least one error. Can you determine the first driving error each person made and the time their test commenced?\nThe permissible items are: \nName: ['Larissa', 'Jacob', 'Erik', 'Marius', 'Hailey']\nDriving Error: ['Failed To Indicate', 'Distracted Driving', \"Didn't Stop (Stop Sign)\", 'Exceeded Speed Limit', 'Driving Too Slow']\nTime: ['10:00am', '9:15am', '11:30am', '8:30am', '10:45am']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Larissa's test was sometime before Hailey's, but sometime after Jacob's."
+        },
+        {
+            "id": 2,
+            "text": "The 10:00am driver stayed under the speed limit during the entire test (though not excessively so)."
+        },
+        {
+            "id": 3,
+            "text": "Marius didn't fail to indicate during his test, but he did fail overall. His test commenced 90 minutes before Erik's."
+        },
+        {
+            "id": 4,
+            "text": "The 11:30am test alarmed Dianne because she had to penalize the driver for using their cell phone just one minute into the exam. This act of distracted driving was the driver's first error, but not their last! They were sent away with a fail and some stern advice."
+        },
+        {
+            "id": 5,
+            "text": "Jacob's test did not start at 9:15am. Dianne did not penalize him for exceeding the speed limit."
+        },
+        {
+            "id": 6,
+            "text": "Hailey didn't exceed the speed limit once... in fact her first and only penalty was for driving too slow! Fortunately, she still passed."
+        }
+    ]
+}

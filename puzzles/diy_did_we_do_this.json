@@ -1,0 +1,21 @@
+{
+    "description": "Deanne and Michael are in the middle of a DIY home renovation project that started off well but turned a little sour as they found they have very different approaches to practical tasks! To finish off the rest of the work (and save their relationship), they have just received quotes from various tradespeople. Can you match the correct contact person with their trade, and the amount they quoted?\nThe permissible items are: \nTrade: ['Carpenter', 'Floor Sander', 'Plumber', 'Electrician']\nQuote: ['$6,500', '$4,000', '$2,500', '$5,000']\nName: ['Trent', 'Andreas', 'Casey', 'Arthur']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Arthur was the most highly recommended floor sander in the area, which led to further strain on Deanne and Michael's relationship once they found out he is fully booked for 6 months. Deanne had wanted to contact Arthur sooner, but Michael was still deliberating over flooring options."
+        },
+        {
+            "id": 2,
+            "text": "Of the Carpenter and the Electrician, one is Andreas and the other quoted $4,000 exactly."
+        },
+        {
+            "id": 3,
+            "text": "Trent's quote was neither the highest nor the lowest of the four."
+        },
+        {
+            "id": 4,
+            "text": "Casey quoted more than the Electrician, but less than Andreas."
+        }
+    ]
+}

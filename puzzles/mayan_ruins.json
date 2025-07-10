@@ -1,0 +1,49 @@
+{
+    "description": "The remains of a previously undiscovered village have been found deep in the Mayan jungle! Five archaeologists made a journey to the area to explore the site for themselves, each finding two interesting artifacts while there. Can you determine the order in which each explorer arrived and the two artifacts they found?\nThe permissible items are: \nExplorer: ['Sascha Stone', 'Bella Bearing', 'Pierre Delcamp', 'Daryl Digby', 'Hans DeGrund']\nArtifact 1: ['Gold Pendant', 'Jade Mask', 'Bone Statue', 'Stone Axe', 'Carved Bowl']\nArtifact 2: ['Clay Plate', 'Shell Pectoral', 'Arrowhead', 'Ancient Text', 'Turtle Carving']\nOrder: ['1st', '3rd', '5th', '2nd', '4th']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The Jade Mask was found by the same lucky person who found the Ancient Text."
+        },
+        {
+            "id": 2,
+            "text": "Hans De Grund is a little bitter that he was not the archaeologist who found the Shell Pectoral - he believes it was his hard work that led them to it!"
+        },
+        {
+            "id": 3,
+            "text": "The five archaeologists are Bella Bearing, the one who arrived 2nd, Pierre Delcamp, the one who found the Arrowhead, and the one who found the Gold Pendant."
+        },
+        {
+            "id": 4,
+            "text": "The Bone Statue was found by none other than Daryl Digby."
+        },
+        {
+            "id": 5,
+            "text": "Just when she was about to call it quits for the trip, Sascha Stone found the Clay Plate buried in the dirt."
+        },
+        {
+            "id": 6,
+            "text": "The one who arrived 3rd (after a harrowing flight) is the one who found the Arrowhead."
+        },
+        {
+            "id": 7,
+            "text": "Of Bella Bearing and the person who arrived 2nd, one is the archaeologist who found the Bone Statue and the other is the archaeologist who found the Stone Axe."
+        },
+        {
+            "id": 8,
+            "text": "Hans De Grund was either 2nd or 3rd to arrive."
+        },
+        {
+            "id": 9,
+            "text": "Of the archaeologist who arrived 2nd and Pierre Delcamp, one found the Jade Mask and the other is the one who found the Turtle Carving."
+        },
+        {
+            "id": 10,
+            "text": "Pierre Delcamp and Sascha Stone did not arrive in consecutive order. Pierre Delcamp arrived sometime before Sascha Stone."
+        },
+        {
+            "id": 11,
+            "text": "Bella Bearing made sure she did not arrive last, lest she miss out on all the best finds!"
+        }
+    ]
+}

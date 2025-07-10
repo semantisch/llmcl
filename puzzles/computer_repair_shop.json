@@ -1,0 +1,29 @@
+{
+    "description": "Bigger Bytes Computer Repair Shop fixed five devices today, each for a local owner who insisted they knew what the issue was but turned out to be sorely mistaken! While not uncommon that the customers think they know best, today's reasons were some real doozies. Can you match each customer with the reason they claimed their device to be broken, and the real issue that was determined by the staff who fixed it?\nThe permissible items are: \nClaimed Issue: ['Warranty Expired', 'Wrong Color Mouse', 'Triple Clicked', 'Cursed']\nActual Issue: ['Bad Memory', 'Hard Drive Error', 'Power Fault', 'Virus Infection']\nOwner: ['Elka', 'Matthew', 'Claire', 'Carlos']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "One customer, whose name begins with C, was adamant that their computer was suffering due to a friend recently installing a new mouse - red in color, unlike the black computer. Clearly incompatible! They were reluctant to believe the news that their computer actually need some bad memory replaced."
+        },
+        {
+            "id": 2,
+            "text": "The person whose device had a hard drive error was not the same person who stormed into the shop upset that their computer had been cursed by their unfriendly new neighbor."
+        },
+        {
+            "id": 3,
+            "text": "Carlos was embarrassed to learn he had actually had his computer infected with a virus."
+        },
+        {
+            "id": 4,
+            "text": "The four unique customers were: Claire, the one who believed their computer was programmed to have an issue the moment the warranty expired, the one who believed they broke their computer by accidentally triple clicking instead of double clicking, and the one whose device was suffering a virus Infection."
+        },
+        {
+            "id": 5,
+            "text": "Matthew's issue was not the power fault."
+        },
+        {
+            "id": 6,
+            "text": "The one who suffered the hard drive error was not the customer who believed their technical woes were a result of mistakenly triple clicking instead of double clicking."
+        }
+    ]
+}

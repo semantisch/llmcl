@@ -1,0 +1,61 @@
+{
+    "description": "It's the summer holidays, and five teens who have been neighbors for many years have decided to get together to form their own junior detective agency! Just for fun, they have been knocking on all the doors in their neighborhood, asking if anyone needs help investigating even the smallest of mysteries - at no charge. Enough neighbors agreed that they each have one case under investigation, with a single clue to go on for each mystery. Can you determine which neighbor each teen investigator is working for, the subject of the case, what the provided clue is, and what they've found so far?\nThe permissible items are: \nNeighbor: ['Mrs Poulter', 'Mrs Garcia', 'Mr Samuels', 'Mr Harris', 'Ms Skyler']\nCase: ['Stolen Plant', 'Missing Mail', 'Visiting Cat', 'Damaged Fence', 'Abandoned House']\nClue: ['Security Footage', 'Footprint', 'Witnessed Kids Running', 'Note', 'Phone Call']\nFindings: ['Another Clue', 'Neighbor Confessed', 'Multiple Victims', 'No Findings Yet', 'Local Kids Did It']\nInvestigator: ['Christian', 'Katelyn', 'Adrian', 'Diego', 'Gillian']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Mr Harris is concerned about an apparent abandoned house at the end of his street, after seeing shadows through the windows on a number of occasions. He'd like to know if someone is spending time there, for peace of mind. The last time he lived near an abandoned house it went up in flames, and he'd rather not go through that again."
+        },
+        {
+            "id": 2,
+            "text": "It was found that local kids were behind one of the incidents, but this wasn't the case where local kids were witnessed running away!"
+        },
+        {
+            "id": 3,
+            "text": "The five teens are the one investigating the abandoned house, Adrian, the one who found that local kids were the culprits, the one helping Ms Skyler, and the one investigating for the neighbor who received a mystery phone call in connection with the case matter."
+        },
+        {
+            "id": 4,
+            "text": "Mrs Poulter is either the neighbor who provided the clue of a strange phone call that was received or the report of having witnessed some kids running away."
+        },
+        {
+            "id": 5,
+            "text": "Christian is not the one assigned to Mr Samuels case. He is however, the teen who does not have any findings yet."
+        },
+        {
+            "id": 6,
+            "text": "Ms Skyler provided security footage to help her case. This isn't the case where the investigating teen hasn't found anything yet."
+        },
+        {
+            "id": 7,
+            "text": "Mr Samuels is quite mad about his damaged fence, given how much it recently cost him to upgrade it. His neighbor had refused to contribute to the cost, making him all the more bitter about it."
+        },
+        {
+            "id": 8,
+            "text": "After some sharp investigating by one of the teens, a nearby neighbor confessed to stealing a plant! The man apologized, but only after commenting that the woman he stole it from has so many plants he's surprised she even noticed."
+        },
+        {
+            "id": 9,
+            "text": "The footprint clue wasn't particularly useful, but after some shrewd investigative work another clue was found by the teen on the case! That's all they have so far."
+        },
+        {
+            "id": 10,
+            "text": "Diego chose Mrs Poulter's case as his parents are friends with her. He was not the one who found out that local kids were responsible."
+        },
+        {
+            "id": 11,
+            "text": "Neither Mr Samuels nor Mrs Garcia provided the clue of having witnessed kids running away."
+        },
+        {
+            "id": 12,
+            "text": "One neighbor received an apologetic but vague note, which they provided as a clue. This was not the case of the missing mail."
+        },
+        {
+            "id": 13,
+            "text": "Gillian is not working for Ms Skyler."
+        },
+        {
+            "id": 14,
+            "text": "One neighbor wanted to find out who owns a long-haired cat that keeps visiting her yard. As much as she likes cats, it eats her dog's food and is making a mess of her garden. She received a phone call one day asking about a neighborhood cat, but she couldn't understand what the person was saying before the call disconnected."
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "description": "Jerry owns a used car dealership in Florida and has just had quite a good sales day, sending five cars out the door to new owners! From the clues given, can you determine the make, color, year, and sale price of each of the cars that were sold?\nThe permissible items are: \nColor: ['Blue', 'Black', 'White', 'Silver', 'Red']\nYear: ['2011', '2014', '2009', '2012', '2016']\nPrice: ['$7,000', '$5,500', '$6,000', '$4,500', '$5,000']\nMake: ['Toyota', 'Ford', 'Audi', 'Hyundai', 'Honda']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The five cars are the blue car, the car with the $7,000 price tag, the 2009 model, the 2011 model, and the Ford."
+        },
+        {
+            "id": 2,
+            "text": "The black car was the lowest priced car, due to some hail damage that had occurred in its time in Jerry's yard. He decided not to fix it, and one lucky lady snapped up a bargain."
+        },
+        {
+            "id": 3,
+            "text": "The $4,500 car is neither a Honda nor a Hyundai."
+        },
+        {
+            "id": 4,
+            "text": "The Honda Jerry sold is a 2012 model."
+        },
+        {
+            "id": 5,
+            "text": "Of the Toyota and the Audi, one sold for $7,000 and the other is a 2009 model car."
+        },
+        {
+            "id": 6,
+            "text": "The Honda was priced higher than the white car, but lower than the Toyota."
+        },
+        {
+            "id": 7,
+            "text": "The silver car is either the Ford or the 2016 model vehicle."
+        },
+        {
+            "id": 8,
+            "text": "Neither the blue car nor the red car sold for exactly $6,000."
+        },
+        {
+            "id": 9,
+            "text": "Neither the silver car nor the $5,500 car is the 2009 model."
+        }
+    ]
+}

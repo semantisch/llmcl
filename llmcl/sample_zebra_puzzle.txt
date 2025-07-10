@@ -1,0 +1,20 @@
+{
+  "description": "The famous Zebra Puzzle (Einstein's Riddle): There are five houses in a row, each painted a different color. In each house lives a person of a different nationality. Each person owns a different pet, drinks a different beverage, and smokes a different brand of cigarettes. The question is: Who drinks water and who owns the zebra?",
+  "clues": [
+    {"id": 1, "text": "There are five houses."},
+    {"id": 2, "text": "The Englishman lives in the red house."},
+    {"id": 3, "text": "The Spaniard owns the dog."},
+    {"id": 4, "text": "Coffee is drunk in the green house."},
+    {"id": 5, "text": "The Ukrainian drinks tea."},
+    {"id": 6, "text": "The green house is immediately to the right of the ivory house."},
+    {"id": 7, "text": "The Old Gold smoker owns snails."},
+    {"id": 8, "text": "Kools are smoked in the yellow house."},
+    {"id": 9, "text": "Milk is drunk in the middle house."},
+    {"id": 10, "text": "The Norwegian lives in the first house."},
+    {"id": 11, "text": "The man who smokes Chesterfields lives in the house next to the man with the fox."},
+    {"id": 12, "text": "Kools are smoked in the house next to the house where the horse is kept."},
+    {"id": 13, "text": "The Lucky Strike smoker drinks orange juice."},
+    {"id": 14, "text": "The Japanese smokes Parliaments."},
+    {"id": 15, "text": "The Norwegian lives next to the blue house."}
+  ]
+} 

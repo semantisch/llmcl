@@ -1,0 +1,17 @@
+{
+    "description": "Dalton Daycare has 3 new attendees today, who have just been dropped off by their slightly anxious parents. Each child was given a toy from home to make them more comfortable. Using the clues provided, can you determine the age of each child and the toy they were dropped off with?\nThe permissible items are: \nAge: ['4 years', '3 years', '5 years']\nToy: ['Dinosaur', 'Train', 'Plush Dog']\nName: ['Emma', 'Kylie', 'Max']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Max, the youngest of the three, does not have a plush dog toy."
+        },
+        {
+            "id": 2,
+            "text": "Kylie was comforted by her dinosaur toy."
+        },
+        {
+            "id": 3,
+            "text": "The 4 year old was not dropped off with a plush dog toy."
+        }
+    ]
+}

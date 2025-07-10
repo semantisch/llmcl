@@ -1,0 +1,41 @@
+{
+    "description": "It is the week of Halloween and Elijah has five spooky gatherings to attend that will each require a costume! He has decided to find a wide variety of costumes, one for each occasion - the first being on Tuesday. Can you match the day of each event with the costume Elijah is planning?\nThe permissible items are: \nEvent: ['Friends House Party', 'Theater Dinner', 'Work Party', \"Neighbor's BBQ\", 'Car Club Party']\nCostume: ['Zorro', 'King of Egypt', '80s Exercise Instructor', 'Garden Gnome', 'Bob Ross']\nDay: ['Wednesday', 'Thursday', 'Friday', 'Saturday', 'Tuesday']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Saturday's house party will be the first time Elijah has seen his main group of friends in many months, as he has been busy with work and other commitments."
+        },
+        {
+            "id": 2,
+            "text": "The first costume to show off will be the garden gnome, with a tall pointy hat! The outfit will be helped along by Elijah's long ginger beard."
+        },
+        {
+            "id": 3,
+            "text": "The five gatherings are the one Elijah will attend dressed as Bob Ross, Thursday's event, the one Elijah will attend dressed as an 80's exercise instructor, the theater dinner, and Saturday's event."
+        },
+        {
+            "id": 4,
+            "text": "Elijah helps out with lighting and other tasks for a local theater group. This year they've decided to have a Halloween dinner as it coincides with the completion of rehearsals for their next play. Elijah will attend this dinner the day before his work party."
+        },
+        {
+            "id": 5,
+            "text": "Elijah has an interest in restoring classic cars, and has been an active member of a local car club in order to meet others with the same passion. Their Halloween party is not on Wednesday."
+        },
+        {
+            "id": 6,
+            "text": "Elijah's plan to dress as the famous painter, Bob Ross, is not for Tuesday's occasion nor the car club party."
+        },
+        {
+            "id": 7,
+            "text": "Elijah will dress as Zorro the day after he dresses as Bob Ross."
+        },
+        {
+            "id": 8,
+            "text": "Elijah bought the King Of Egypt costume from a Halloween store, but not to wear to his work party."
+        },
+        {
+            "id": 9,
+            "text": "Elijah's costume for his neighbor's BBQ (which isn't on Thursday) is either Zorro or the 80's exercise instructor."
+        }
+    ]
+}

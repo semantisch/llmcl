@@ -1,0 +1,25 @@
+{
+    "description": "Cody is a junior basketball coach and has just attended a district tournament where four of the teams he coaches participated. They all had hopes of getting to the state championships, but only two teams won their first game. Can you match each team with the name of its captain and their score from their first game? Note: The teams did not play against each other, and score alone does not indicate whether a team won their match as the scores of the opposing teams are not mentioned.\nThe permissible items are: \nCaptain: ['Nisay', 'Alby', 'Kyle', 'Jericho']\nScore: ['51', '54', '49', '46']\nTeam: ['Nice Shot', 'Hills Giants', 'Basket Breakers', 'Downtown Dribblers']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Kyle saved the game for his team (whose score didn't get past 50) with two free throws after the other team committed a foul."
+        },
+        {
+            "id": 2,
+            "text": "The Hills Giants, captained by Alby, is mostly comprised of a group of old friends who move together well on the court. Cody commented that this won them their game. They did not finish with a score of 51."
+        },
+        {
+            "id": 3,
+            "text": "Jericho's team scored higher than the Basket Breakers, but lower than Nisay's team."
+        },
+        {
+            "id": 4,
+            "text": "Nice Shot lost their game after coming up against a very strong opposing team. Their final score was an even number."
+        },
+        {
+            "id": 5,
+            "text": "The Downtown Dribblers scored either 2 or 3 points more than Kyle's team."
+        }
+    ]
+}

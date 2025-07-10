@@ -1,0 +1,45 @@
+{
+    "description": "Stings And Scrapes Tattoo Studio is fully booked this Friday for seven members of the local motorcycle club, The Rollicking Riders. The club is comprised of all kinds of motorcycle enthusiasts just having a bit of fun and enjoying the company! Can you identify the appointment time of each member (identified by their club nickname) and the tattoo design they have chosen?\nThe permissible items are: \nName: ['Little Hawk', 'Gunner', 'Medusa', 'Knuckles', 'Raven', 'Riffraff', 'Poison']\nDesign: ['Roses', 'Handlebars', 'Tribal Pattern', 'Flames', 'Skulls', 'Motorcycle', 'Serpent']\nTime: ['4:00pm', '10:00am', '3:00pm', '2:00pm', '12:00pm', '11:00am', '9:00am']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Riffraff's appointment is earlier in the day than Gunner's. He's quietly afraid of the pain, and wants to get it over with as soon as possible."
+        },
+        {
+            "id": 2,
+            "text": "The person with the 2:00pm appointment time, Medusa, the person getting the flames design, the person with the 9:00am appointment, and the person getting the serpent design are five different people."
+        },
+        {
+            "id": 3,
+            "text": "Poison is booked in for a colorful roses design, but not at 3:00pm as he will be busy picking his kids up from school."
+        },
+        {
+            "id": 4,
+            "text": "Knuckles has his appointment immediately before Poison, and immediately after Riffraff."
+        },
+        {
+            "id": 5,
+            "text": "Of Knuckles and the one who is getting the motorcycle tattoo, one has an appointment at 11:00am and the other has an appointment at 3:00pm."
+        },
+        {
+            "id": 6,
+            "text": "Little Hawk has either the first appointment of the day or the last appointment of the day."
+        },
+        {
+            "id": 7,
+            "text": "The handlebars design will be sometime before the skulls design, which will be sometime before the serpent design."
+        },
+        {
+            "id": 8,
+            "text": "Little Hawk is not getting the handlebars design nor the tribal pattern."
+        },
+        {
+            "id": 9,
+            "text": "The flames design will be tattooed earlier in the day than the handlebars."
+        },
+        {
+            "id": 10,
+            "text": "Medusa, who hates skull tattoos and would never get one, does not have a 10:00am appointment."
+        }
+    ]
+}

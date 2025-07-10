@@ -1,0 +1,53 @@
+{
+    "description": "Five colleagues from office supplies store \"Office Office Office\" have just had a gathering to take their minds off the drudgery that is work... by having a Cheese & Games Night! Each person brought two types of cheeses and a fun activity to play. Using the clues provided, can you figure out who brought what?\nThe permissible items are: \nCheese 1: ['Camembert', 'Goats Feta', 'Smoked Gouda', 'Aged Cheddar', 'Brie']\nCheese 2: ['Asiago', 'Manchego', 'Gorgonzola', 'Provolone', 'Pepper Jack']\nActivity: ['Karaoke', 'Board Game', 'Modeling Clay', 'Charades', 'Cards']\nName: ['Johan', 'Tony', 'Stacey', 'Uma', 'Daphne']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Uma didn't bring the Provolone nor the Gorgonzola."
+        },
+        {
+            "id": 2,
+            "text": "The modeling clay and the Camembert arrived together."
+        },
+        {
+            "id": 3,
+            "text": "Tony brought his karaoke set, keen to show off his well-rehearsed rendition of \"I Will Always Love You\", but the majority of the group had little confidence in their own singing voices and vetoed the idea of karaoke."
+        },
+        {
+            "id": 4,
+            "text": "The Smoked Gouda was either brought by Tony or the one who brought the board game, which was so complicated no one wanted to play it."
+        },
+        {
+            "id": 5,
+            "text": "The Asiago and the Brie arrived via the same person."
+        },
+        {
+            "id": 6,
+            "text": "Of Stacey and the person who brought the Goats Feta, one was the person who also brought the Manchego and the other was the one who brought modeling clay - which was mostly used to make funny figurines of the boss of Office Office Office."
+        },
+        {
+            "id": 7,
+            "text": "The Provolone was not one of Daphne's offerings."
+        },
+        {
+            "id": 8,
+            "text": "The five unique people are the one who brought the Pepper Jack, the one who brought the Brie, the one who brought the Smoked Gouda, Daphne, and the one who brought Charades to play."
+        },
+        {
+            "id": 9,
+            "text": "Johan either brought the board game or the deck of cards."
+        },
+        {
+            "id": 10,
+            "text": "Daphne brought a block of Aged Cheddar she had been saving for a special occasion; she figured this was a good enough time to use it since it was nearing its expiry date."
+        },
+        {
+            "id": 11,
+            "text": "Of the one who brought the Asiago and the one who brought the Provolone, one was Tony and the other brought the board game."
+        },
+        {
+            "id": 12,
+            "text": "Tony hates Brie and would never buy it - because it shares the same name as his ex-wife!"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "description": "Last night three friends who have just taken a cooking class held a dinner to practice their new skills. Can you identify which person brought which main course, and the dessert they each made for the evening?\nThe permissible items are: \nMain Dish: ['Gado Gado', 'Beef Wellington', 'Shrimp Ceviche']\nDessert: ['French Apple Cake', 'Raspberry Tiramisu', 'Creme Brulee']\nName: ['Leanne', 'Tobias', 'Fiona']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The three people are Tobias, the one who brought the Gado Gado, and the one who brought the Raspberry Tiramisu."
+        },
+        {
+            "id": 2,
+            "text": "Fiona did not bring the Beef Wellington."
+        },
+        {
+            "id": 3,
+            "text": "The Shrimp Ceviche was brought by either Tobias or the person who brought the Creme Brulee."
+        }
+    ]
+}

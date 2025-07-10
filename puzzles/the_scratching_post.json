@@ -1,0 +1,45 @@
+{
+    "description": "Yvonne runs a home cat boarding facility, \"The Scratching Post\", looking after local kitties while their owners are away. It's feeding time, and each cat has a different designated food! Can you determine the name and breed of each cat, the food they have for dinner, and how many days they've been staying with Yvonne so far?\nThe permissible items are: \nBreed: ['Ragdoll', 'Persian', 'Tabby', 'Siamese', 'Devon Rex']\nFood: ['Beef Kibble', 'Chicken Breast', 'Lamb Kibble', 'Tuna Kidney Diet', 'Raw Beef']\nDays Stayed: ['13', '5', '11', '3', '9']\nName: ['Bandit', 'Ralph', 'Mickey', 'Figaro', 'Zeus']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The five cats are the one that has stayed exactly 5 days, the one that will be eating lamb kibble, the one that will be eating beef kibble, the Devon Rex, and Ralph."
+        },
+        {
+            "id": 2,
+            "text": "The very friendly and playful cat named Mickey is not a Ragdoll."
+        },
+        {
+            "id": 3,
+            "text": "Bandit's stay has been less than 10 days so far."
+        },
+        {
+            "id": 4,
+            "text": "Of the Tabby cat and Ralph, one has stayed exactly 3 days and the other is fed chicken breast."
+        },
+        {
+            "id": 5,
+            "text": "The Siamese cat has stayed longer than Mickey but less time than the cat that is fed raw beef."
+        },
+        {
+            "id": 6,
+            "text": "Figaro has stayed with Yvonne two days longer than the Devon Rex."
+        },
+        {
+            "id": 7,
+            "text": "Zeus, who has stayed with Yvonne many times before, is not on the kidney diet food."
+        },
+        {
+            "id": 8,
+            "text": "The cat that has stayed for precisely 9 days is not fed lamb kibble."
+        },
+        {
+            "id": 9,
+            "text": "The Persian cat (which isn't Zeus) is not fed chicken breast or lamb kibble. It has stayed for more than 10 days; its owners are on an extended honeymoon."
+        },
+        {
+            "id": 10,
+            "text": "Ralph is not the cat that has stayed for exactly 9 days."
+        }
+    ]
+}

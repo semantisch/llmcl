@@ -1,0 +1,37 @@
+{
+    "description": "In the sleepy seaside town of Shipley South, a lack of oversight at the recent monthly markets led to the situation where there were five stalls selling macarons! As popular as the sweet treats are, stallholders all agreed that there were far too many, and sales suffered as a result. From the clues given, can you determine each stallholders name, their signature macaron flavor, the other major item they sell at their stall, and how much they earned at the recent market day?\nThe permissible items are: \nFlavor: ['Lemon Delight', 'Creme Brulee', 'Blood Orange', 'Rainbow Ripple', 'Tiramisu']\nOther Item: ['Gelato', 'Incense', 'Hats', 'Jewelry', 'Cakes']\nEarnings: ['$400', '$550', '$250', '$300', '$450']\nName: ['Sammie', 'Olga', 'Maria', 'Faith', 'Henry']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Henry hates the smell of incense and was frustrated to find that his new stall position was right next to the person selling it, who burned samples all day."
+        },
+        {
+            "id": 2,
+            "text": "Of the stallholder with the Tiramisu flavor as their specialty and the one who earned $550, one is the person who additionally sells cakes and the other is Sammie."
+        },
+        {
+            "id": 3,
+            "text": "Of the incense seller and the one whose takings from the day were $300, one is known for their Rainbow Ripple macarons, and the other is Sammie."
+        },
+        {
+            "id": 4,
+            "text": "Neither Maria nor the person with the Lemon Delight flavor earned exactly $450. Maria earned more than Faith."
+        },
+        {
+            "id": 5,
+            "text": "The five stallholders are the one who also sells gelato, the one with the signature Blood Orange macaron flavor, the one who earned precisely $400, Maria, and the one who also sells cakes."
+        },
+        {
+            "id": 6,
+            "text": "Olga earned less than Henry but more than the one with the Creme Brulee flavor (who did not earn exactly $300)."
+        },
+        {
+            "id": 7,
+            "text": "The creator of the Rainbow Ripple flavor earned exactly $100 less than the jewelry seller (who sells mostly shell necklaces and other beachy trinkets)."
+        },
+        {
+            "id": 8,
+            "text": "The seller with the Lemon Delight flavor has never branched out into selling cakes, despite much encouragement from their macaron fans."
+        }
+    ]
+}

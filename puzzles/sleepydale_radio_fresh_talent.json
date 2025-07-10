@@ -1,0 +1,57 @@
+{
+    "description": "The local community radio station in the small city of Sleepydale has just run its annual Fresh Talent competition, accepting song submissions from new bands and musical artists. The six finalists are each in a different genre of music. Can you determine the name of each artist, their genre, the name of their track that made the finals, and the length of each track (in minutes:seconds format)?\nThe permissible items are: \nSong: ['One Eye Open', 'City Of Dreams', 'Strained Slumber', 'Halfway Here', 'After Midnight', 'Darkest Days']\nGenre: ['Country', 'Hip Hop', 'EDM', 'Folk', 'Pop', 'Rock']\nTrack Length: ['3:12', '2:58', '4:00', '4:14', '3:36', '2:34']\nArtist: ['The Fireneers', 'Met A Man', 'Hitch Atom', 'Sleepy Wall', 'Faster Slower', 'Tommy T. Tom']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The six songs are the one by Hitch Atom, the one that goes for exactly 2 minutes 34 seconds, \"City Of Dreams\", \"Strained Slumber\", the one by Met A Man, and the EDM track."
+        },
+        {
+            "id": 2,
+            "text": "Of \"Darkest Days\" and the song by Met A Man, one is 3:36 long and the other is a Pop song."
+        },
+        {
+            "id": 3,
+            "text": "\"One Eye Open\" plays for longer than Tommy T. Tom's track."
+        },
+        {
+            "id": 4,
+            "text": "The Country song has a shorter duration than Sleepy Wall's offering."
+        },
+        {
+            "id": 5,
+            "text": "It's no accident that \"One Eye Open\" is precisely 4 minutes long, with the artist being a fan of round numbers."
+        },
+        {
+            "id": 6,
+            "text": "No song starts with the first letter of its artist's name."
+        },
+        {
+            "id": 7,
+            "text": "Of \"City Of Dreams\" and the Hitch Atom song, one is a Folk song and the other is 2:58 long."
+        },
+        {
+            "id": 8,
+            "text": "There is a difference in duration of 1 minute 2 seconds between the Hip Hop song and the song by The Fireneers."
+        },
+        {
+            "id": 9,
+            "text": "The Rock song is 14 seconds longer than the Country song."
+        },
+        {
+            "id": 10,
+            "text": "Faster Slower's song is 24 seconds longer than \"Halfway Here\"."
+        },
+        {
+            "id": 11,
+            "text": "\"Darkest Days\" is not a Hip Hop nor a Folk song."
+        },
+        {
+            "id": 12,
+            "text": "Faster Slower's song is longer than the Pop song, but shorter than Sleepy Wall's song."
+        },
+        {
+            "id": 13,
+            "text": "\"After Midnight\", which is not a Hip Hop song, was not recorded by The Fireneers, Tommy T. Tom, nor Met A Man."
+        }
+    ]
+}

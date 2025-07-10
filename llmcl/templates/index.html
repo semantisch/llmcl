@@ -284,8 +284,12 @@
             if (result.solution_success) {
                 solutionStatusDiv.innerHTML = '<div class="alert alert-success">🎉 Puzzle solved successfully!</div>';
                 
-                // Format solution facts nicely
-                if (result.solution_facts && result.solution_facts.length > 0) {
+                // Use formatted solutions if available, otherwise fall back to raw facts
+                if (result.formatted_solutions) {
+                    document.getElementById('solutionFacts').innerHTML = `
+                        <pre style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; font-size: 14px; line-height: 1.4;">${result.formatted_solutions}</pre>
+                    `;
+                } else if (result.solution_facts && result.solution_facts.length > 0) {
                     const factsByPredicate = {};
                     result.solution_facts.forEach(fact => {
                         const predicate = fact.split('(')[0];

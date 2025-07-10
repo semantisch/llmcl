@@ -1,0 +1,37 @@
+{
+    "description": "The Clay family are preparing for their annual Christmas feast, a grand celebration with friends and family. Taking place in a large, luxurious home often affectionately dubbed a mini-mansion by guests, their Christmas gathering is meticulously planned and highly praised. This year there are to be 5 tables of guests, each with a unique centerpiece with the table number on top for easy identification. Each table happens to have a guest with a special dietary requirement. Can you identify each table's centerpiece, the guest with the dietary requirement, and what that requirement is?\nThe permissible items are: \nCenterpiece: ['Reindeer', 'Christmas Wreath', 'Floral Bouquet', 'Christmas Tree', 'Angel Wings']\nGuest: ['Hugo', 'Maryanne', 'Roderick', 'Martina', 'Kylie']\nDiet: ['Vegan', 'Soft Food', 'Low Sodium', 'Gluten Free', 'Nut Free']\nTable: ['Table 1', 'Table 3', 'Table 5', 'Table 2', 'Table 4']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Table 1 will be identified by a large glittering reindeer decoration that takes up nearly half the table, but still leaves plenty of room for food."
+        },
+        {
+            "id": 2,
+            "text": "Maryanne, who will not be on Table 1, is an elderly guest who has lost a few teeth over the years and, sadly, can no longer enjoy many of the usual Christmas foods. She will receive a specially-prepared three-course meal full of the flavors of Christmas but made exclusively with soft food!"
+        },
+        {
+            "id": 3,
+            "text": "The number of the table with the floral bouquet is consecutively the next number after Martina's table number. Martina will not be seated at Table 3 or Table 4."
+        },
+        {
+            "id": 4,
+            "text": "Of Roderick and the guest with the low sodium dietary requirement, one is on Table 2 and the other is on the table with the Christmas wreath centerpiece."
+        },
+        {
+            "id": 5,
+            "text": "Hugo is not the one with the low sodium diet."
+        },
+        {
+            "id": 6,
+            "text": "Roderick is not the one with the gluten free dietary request."
+        },
+        {
+            "id": 7,
+            "text": "The vegan guest at Table 5 will receive a nut-based vegan roast in place of meat."
+        },
+        {
+            "id": 8,
+            "text": "Kylie's table number is an odd number. Her table will be adorned with a very large set of angel wings surrounded by cotton wool clouds."
+        }
+    ]
+}

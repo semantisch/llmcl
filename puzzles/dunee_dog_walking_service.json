@@ -1,0 +1,45 @@
+{
+    "description": "Harold, a semi-retired lifelong dog lover, recently started up a dog walking service in his spare time. He services local residents of his town, Dunee. The extra cash mostly goes to his children and grandchildren, but also special treats for his own poodle, Maxxie! From the clues given, can you determine the names and breeds of each of the dogs he walks, their addresses, and the time he picks up each dog on weekdays?\nThe permissible items are: \nAddress: ['20 Simpson St', '22 Mayfair Ave', '29 Swanson Pl', '11 Holland St', '13 Marley Ave']\nBreed: ['Fox Terrier', 'Shiba Inu', 'Beagle', 'French Bulldog', 'Golden Retriever']\nPick Up Time: ['3:10pm', '7:30am', '4:20pm', '3:00pm', '7:40am']\nName: ['Bandit', 'Charlie', 'Peanut', 'Marlin', 'Alfie']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The pairs of dogs picked up within 10 minutes of each other are walked together. Bandit is the only dog walked alone."
+        },
+        {
+            "id": 2,
+            "text": "Marlin and Alfie are walked together, with Marlin being picked up first. They both get nervous at the dog park, so they are taken to a nearby field where they are unlikely to encounter any other dogs."
+        },
+        {
+            "id": 3,
+            "text": "Peanut has never known any home other than 11 Holland Street."
+        },
+        {
+            "id": 4,
+            "text": "The Shiba Inu lives at an address with an even street number."
+        },
+        {
+            "id": 5,
+            "text": "Of Alfie and the dog at 13 Marley Avenue, one is a Golden Retriever and the other is collected by Harold at 7:40am."
+        },
+        {
+            "id": 6,
+            "text": "Charlie is not a French Bulldog."
+        },
+        {
+            "id": 7,
+            "text": "The Beagle has an afternoon pick up time. The Fox Terrier is picked up in the morning."
+        },
+        {
+            "id": 8,
+            "text": "One of the last two collections of the day is on Swanson Place. The Beagle does not live on this street."
+        },
+        {
+            "id": 9,
+            "text": "The Golden Retriever and the Shiba Inu are walked together."
+        },
+        {
+            "id": 10,
+            "text": "Neither the dog at 20 Simpson Street (who is not collected at 3:00pm sharp) nor the dog at 22 Mayfair Avenue is collected in the morning."
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "description": "It is the night of Christmas Eve, and Santa was just about to depart the North Pole with a sleigh full of goodies. However, one of his elves ran from the workshop to alert him that some of the gifts have been addressed incorrectly! Fortunately, mistakes like this are rare and are quickly spotted and rectified with the help of some meticulous record keeping. Can you determine the correct details of the five gifts that were incorrectly addressed?\nThe permissible items are: \nAddress: ['213 Drummond Ave', '144 Beecroft Street', '27 Milton Place', '11 Marcia Way', '133 Henderson Ave']\nGift: ['Board Game', 'Book', 'Skateboard', 'Keyboard', 'Slime Kit']\nName: ['Jesse', 'Harper', 'Amelia', 'Chelsea', 'Tim']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Tim's family only just moved to 144 Beecroft Street in the last week, the reason for the mix-up!"
+        },
+        {
+            "id": 2,
+            "text": "Chelsea does not live on Marcia Way."
+        },
+        {
+            "id": 3,
+            "text": "The neon green and pink skateboard is going to an adventurous child who lives at 213 Drummond Ave."
+        },
+        {
+            "id": 4,
+            "text": "Amelia will not be receiving the board game."
+        },
+        {
+            "id": 5,
+            "text": "The Slime Kit is not for Chelsea or Amelia."
+        },
+        {
+            "id": 6,
+            "text": "Either Jesse or the child who lives at 11 Marcia Way will be receiving the keyboard."
+        },
+        {
+            "id": 7,
+            "text": "The Slime Kit is not going to Milton Place or Beecroft Street."
+        },
+        {
+            "id": 8,
+            "text": "Either Jesse or Amelia is the one who lives at 133 Henderson Ave."
+        },
+        {
+            "id": 9,
+            "text": "Jesse's gift is either the Slime Kit or the book."
+        },
+        {
+            "id": 10,
+            "text": "Harper does not live at 27 Milton Place, nor will she be the one receiving the book. The book is not going to 27 Milton Place."
+        },
+        {
+            "id": 11,
+            "text": "The skateboard is not for Amelia."
+        }
+    ]
+}

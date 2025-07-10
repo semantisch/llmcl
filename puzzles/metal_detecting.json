@@ -1,0 +1,41 @@
+{
+    "description": "Charleston's local hobbyist metal detecting group, \"Finder 49'ers\", were out and about yesterday combing Schofield Park for treasures. Proudly wearing their black and yellow club shirts, they spread out around the park in search of the most exciting of beeps! From the clues provided, can you determine the best finds of each member, the time they found that object, and where they found it?\nThe permissible items are: \nTime: ['2:09pm', '1:51pm', '1:33pm', '2:40pm', '1:02pm']\nFind: ['Gold Coin', 'Silver Brooch', 'Silver Coin', 'Gold Ring', 'Tin Soup Can']\nLocation: ['Behind Park Bench', 'Under Oak Tree', 'Beside Garden', 'By The Lake', 'Near Monument']\nName: ['Bette', 'Gladys', 'William', 'Lucas', 'James']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Bette is the newest member of Finder 49'ers, and she was excited to have found a gold item on her first outing with the group. This was sometime before Lucas found his item."
+        },
+        {
+            "id": 2,
+            "text": "Gladys is married to William. Neither of them were exploring near the lake."
+        },
+        {
+            "id": 3,
+            "text": "The item found near the monument of the town mayor was either the 2:09pm find or the silver coin."
+        },
+        {
+            "id": 4,
+            "text": "James found his memento at precisely 1:33pm, but not beside the flower garden."
+        },
+        {
+            "id": 5,
+            "text": "The discovery under the oak tree was exactly 31 minutes after the silver brooch was found."
+        },
+        {
+            "id": 6,
+            "text": "Of the person whose find was at 1:51pm and Lucas, one found a silver brooch and the other nabbed their find after a brief dig behind a park bench."
+        },
+        {
+            "id": 7,
+            "text": "The person who found an item beside the flower garden (which wasn't a gold coin) is not married."
+        },
+        {
+            "id": 8,
+            "text": "Gladys found her item (which wasn't the silver coin) sometime before her husband found his item."
+        },
+        {
+            "id": 9,
+            "text": "The gold ring was the last find of the day. Shortly after, the police came to tell the group they didn't have permission to dig up the park! The park-goer who had reported them watched from a distance."
+        }
+    ]
+}

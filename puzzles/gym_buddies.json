@@ -1,0 +1,41 @@
+{
+    "description": "In an effort to encourage new members to keep up with their goals, the popular gym \"Witness Fitness\" has implemented an optional buddy system. Willing members are paired with a stranger with whom they can easily commute to the gym, and the two earn rewards for continuing to attend regularly! Five of the newest pairs plan to attend this morning's classes together, though a few are considering some excuses to sleep in instead! From the clues provided, can you determine which of the members are paired together, as well as the time and class they plan to attend?\nThe permissible items are: \nPerson 2: ['Kevin', 'Yolanda', 'Jermaine', 'Beth', 'Giselle']\nClass: ['Sculpt n Tone', 'Pilates', 'Power Yoga', 'Strength', 'Kickboxing']\nClass Time: ['6:30am', '7:00am', '6:00am', '7:30am', '8:00am']\nPerson 1: ['Heather', 'Tahlia', 'Quinton', 'Richie', 'Breanna']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Either Sculpt n Tone or Kickboxing starts at the bright and early time of 6:00am."
+        },
+        {
+            "id": 2,
+            "text": "The five pairs are: the duo attending the 6:00am class, Heather and her buddy, Yolanda and her buddy, the two planning to attend the Kickboxing class, and the duo attending the 8:00am class."
+        },
+        {
+            "id": 3,
+            "text": "The Strength class starts at least an hour after Power Yoga's start time."
+        },
+        {
+            "id": 4,
+            "text": "Power Yoga starts earlier than Kickboxing."
+        },
+        {
+            "id": 5,
+            "text": "Quinton will be attending an earlier session than Richie. Richie is not paired with Kevin."
+        },
+        {
+            "id": 6,
+            "text": "Giselle will be attending an earlier session than Breanna."
+        },
+        {
+            "id": 7,
+            "text": "Beth's class starts 30 minutes after the Pilates class."
+        },
+        {
+            "id": 8,
+            "text": "The Kickboxing class starts earlier than the class Giselle plans to attend."
+        },
+        {
+            "id": 9,
+            "text": "Tahlia will be attending the 6:30am class as it is the only one that aligns with her buddy's schedule. She doesn't usually mind, but today being her day off work she would much rather sleep in."
+        }
+    ]
+}

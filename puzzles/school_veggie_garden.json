@@ -1,0 +1,45 @@
+{
+    "description": "Mrs McPhail's fourth grade class have been learning how to grow vegetables in a veggie plot behind the classroom. The class has been split into groups for this activity, each group assigned with the task of taking care of two types of vegetable. From the clues provided can you determine which two vegetables each group is in charge of?\nThe permissible items are: \nVegetable 1: ['Broccoli', 'Lettuce', 'Cucumbers', 'Carrots', 'Beans']\nVegetable 2: ['Snow Peas', 'Cabbage', 'Spinach', 'Zucchini', 'Spring Onion']\nGroup: ['Group 1', 'Group 3', 'Group 5', 'Group 4', 'Group 2']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "The group caring for the cucumbers is the same group caring for the cabbage."
+        },
+        {
+            "id": 2,
+            "text": "The five unique groups are the group growing beans, the group growing spring onion, Group 1, the group growing zucchini, and the group growing lettuce."
+        },
+        {
+            "id": 3,
+            "text": "Group 4 are not looking after lettuce nor broccoli."
+        },
+        {
+            "id": 4,
+            "text": "Group 2 are not looking after the cucumbers nor the spinach."
+        },
+        {
+            "id": 5,
+            "text": "Group 4 have not been assigned to the spring onion nor the cabbage."
+        },
+        {
+            "id": 6,
+            "text": "Group 3 is either looking after the carrots or the snow peas."
+        },
+        {
+            "id": 7,
+            "text": "Group 5 have been having great success growing spinach and each student got to take some home."
+        },
+        {
+            "id": 8,
+            "text": "Group 1 are not growing any vegetables beginning with the letter B."
+        },
+        {
+            "id": 9,
+            "text": "The zucchini is being grown by either Group 2 or Group 3."
+        },
+        {
+            "id": 10,
+            "text": "The broccoli is not being grown by the group growing the zucchini."
+        }
+    ]
+}

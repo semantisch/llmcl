@@ -1,0 +1,33 @@
+{
+    "description": "Five friends spent the afternoon catching up at a new cafe, discussing the latest news over some tasty treats. They always split the bill when they eat out together. From the clues provided, can you determine the drink and food item each person ordered, and the amount they paid?\nThe permissible items are: \nFood: ['Mexican Wrap', 'Greek Salad', 'Ham & Cheese Croissant', 'Belgian Waffles', 'Turkey Sandwich']\nDrink: ['Iced Coffee', 'Cappuccino', 'Lemonade', 'Mango Smoothie', 'Iced Tea']\nPrice: ['$15.00', '$18.00', '$15.50', '$16.50', '$17.00']\nName: ['Gary', 'Sandra', 'Antonia', 'Gwen', 'Theo']",
+    "clues": [
+        {
+            "id": 1,
+            "text": "Of the one who ordered Belgian Waffles and the one who ordered a Greek Salad, one is Gary and the other paid $17.00."
+        },
+        {
+            "id": 2,
+            "text": "Gwen finished every last morsel of her Ham & Cheese Croissant. She was not the one who paid $16.50."
+        },
+        {
+            "id": 3,
+            "text": "The Lemonade was served to the person who had the smallest amount to pay."
+        },
+        {
+            "id": 4,
+            "text": "The Mango Smoothie was ordered by the person who got the Mexican Wrap, but they didn't digest so well together and triggered a stomach ache."
+        },
+        {
+            "id": 5,
+            "text": "Sandra's Iced Coffee was one of the best she had tasted, and she shared some with her friend next to her who ordered the Turkey Sandwich."
+        },
+        {
+            "id": 6,
+            "text": "One friend paid $15.50 for their Greek Salad and a drink (which wasn't Iced Tea)."
+        },
+        {
+            "id": 7,
+            "text": "Antonia paid more than Theo, but less than Sandra."
+        }
+    ]
+}
