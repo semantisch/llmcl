@@ -24,8 +24,8 @@ assigned(ID,POS,N) :- object(ID,POS,A,V), assign(A,V,N).
 %:- assigned(ID,POS,_), not aux(ID,POS), clue(ID,same).
 
 % Even more involved (from Martin)
-%aux_same(ID,N) :- clue(ID,same), number(N), object(ID,POS,_,_), not assigned(ID,POS,N).
-%:- clue(ID,same), aux_same(ID,N):number(N).
+aux_same(ID,N) :- clue(ID,same), number(N), object(ID,POS,_,_), not assigned(ID,POS,N).
+:- clue(ID,same), aux_same(ID,N):number(N).
 
 % Positive other side (seems also to work - works on all examples):
 %check_same(ID) :- number(N), #count{POS:assigned(ID,POS,N)} = ALPHA, ALPHA = #count{POS:object(ID,POS,_,_)}, clue(ID,same).
