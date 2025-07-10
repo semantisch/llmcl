@@ -529,11 +529,17 @@ Extract all attributes and their possible values. Return as JSON."""
 
 IMPORTANT: Complex clues may require MULTIPLE ASP clue facts. Decompose the logic completely.
 
-CLUE TYPES:
+CLUE TYPES (including compound types):
 - same: Attributes belong together in the solution
 - diff: Attributes cannot belong together  
 - less: Ordering constraint (smaller position → smaller target value)
 - next: Adjacent/consecutive constraint (consecutive positions → consecutive target values)
+- "(less;next)": X is immediately before Y (both ordering + adjacency)
+
+COMPOUND TYPE DETECTION:
+- If clue expresses BOTH ordering AND adjacency → use compound type
+- Keywords indicating immediacy/adjacency: "immediately", "directly", "next to"
+- Keywords indicating ordering: "before", "after", positional terms
 
 COMPLEX CLUE DECOMPOSITION:
 Identify clue patterns and decompose appropriately:
@@ -594,17 +600,16 @@ Return JSON with this structure for MULTIPLE clues:
     {{
       "sub_id": "2b",
       "type": "same",
-      "description": "Either Entity A or Entity B has Property X", 
+      "description": "Entity A has Property X", 
       "objects": [
         {{"position": 1, "attribute": "type_1", "value": "entity_a"}},
-        {{"position": 1, "attribute": "type_2", "value": "entity_b"}},
         {{"position": 2, "attribute": "property", "value": "property_x"}}
       ]
     }},
     {{
       "sub_id": "2c",
       "type": "same",
-      "description": "Either Entity A or Entity B has Property Y",
+      "description": "Either Entity A or Entity B has Property Y", 
       "objects": [
         {{"position": 1, "attribute": "type_1", "value": "entity_a"}},
         {{"position": 1, "attribute": "type_2", "value": "entity_b"}},
@@ -641,13 +646,13 @@ CRITICAL RULES:
 
 POSITION RULES FOR ASP CLUES:
 - For "diff" clues: Put different entities at different positions (1, 2, 3, 4...)
+- For "same" clues (basic): Put the two related attributes at positions 1 and 2
 - For "same" clues with disjunction: Put ALL disjunction options at position 1, shared property at position 2
-- For "same" clues with conjunction: Put all properties that belong together at position 1
 
 EXAMPLES:
 - "A, B, C are all different" → diff clue: A at pos 1, B at pos 2, C at pos 3
-- "Either A or B has property X" → same clue: A and B at pos 1, X at pos 2  
-- "A has both X and Y" → same clue: A, X, and Y all at pos 1
+- "A has property X" → same clue: A at pos 1, X at pos 2
+- "Either A or B has property X" → same clue: A and B at pos 1, X at pos 2
 
 - Include "description" to explain each sub-clue's purpose"""
 

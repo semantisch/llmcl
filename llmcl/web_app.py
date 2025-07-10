@@ -14,7 +14,7 @@ from flask_cors import CORS
 
 from llm_connector import LLMConnector
 from asp_generator import ASPGenerator
-from llmcl import validate_asp_syntax, solve_puzzle
+from llmcl import validate_asp_syntax, solve_puzzle, format_all_solutions
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'llmcl-dev-key-change-in-production')
@@ -166,6 +166,13 @@ def process_puzzle():
                 pass
         
         # Format results
+        formatted_solutions = ""
+        if solution_success and solution_output:
+            try:
+                formatted_solutions = format_all_solutions(solution_output)
+            except Exception as e:
+                formatted_solutions = f"Error formatting solutions: {str(e)}"
+        
         result = {
             'success': True,
             'structured_info': structured_info,
@@ -175,6 +182,7 @@ def process_puzzle():
             'solution_success': solution_success,
             'solution_output': solution_output,
             'solution_facts': solution_facts,
+            'formatted_solutions': formatted_solutions,
             'model_used': model,
             'provider': llm.provider
         }
