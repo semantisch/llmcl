@@ -98,7 +98,7 @@ def validate_asp_syntax_basic(asp_file: str, verbose: bool = False) -> Tuple[boo
 
 
 def solve_puzzle(asp_file: str, encoding_file: str, verbose: bool = False) -> Tuple[bool, str, List[str]]:
-    """Solve the puzzle using clingo."""
+    """Solve the puzzle using clingo, getting multiple solutions if available."""
     clingo_path = find_clingo()
     if not clingo_path:
         return False, "clingo not found. Please install clingo ASP solver.", []
@@ -115,8 +115,8 @@ def solve_puzzle(asp_file: str, encoding_file: str, verbose: bool = False) -> Tu
     # Add ASP fact file
     cmd.append(asp_file)
     
-    # Limit to 1 solution
-    cmd.extend(['-n', '1'])
+    # Get up to 10 solutions
+    cmd.extend(['-n', '10'])
     
     if verbose:
         print(f"🔄 Running clingo: {' '.join(cmd)}")
@@ -143,28 +143,72 @@ def solve_puzzle(asp_file: str, encoding_file: str, verbose: bool = False) -> Tu
 
 
 def parse_clingo_solution(clingo_output: str) -> List[str]:
-    """Parse clingo output to extract solution facts."""
-    solution_facts = []
+    """Parse clingo output to extract multiple solution facts."""
+    all_solutions = []
     
     lines = clingo_output.split('\n')
+    current_solution = []
     in_answer = False
     
     for line in lines:
         line = line.strip()
         
         if line.startswith('Answer:'):
+            # Save previous solution if exists
+            if current_solution:
+                all_solutions.append(current_solution)
+                current_solution = []
             in_answer = True
             continue
         
         if in_answer and line:
-            if line.startswith('SATISFIABLE') or line.startswith('UNSATISFIABLE'):
+            if line.startswith('SATISFIABLE') or line.startswith('UNSATISFIABLE') or line.startswith('Models'):
                 break
             
             # Extract facts from the answer line
             facts = line.split()
-            solution_facts.extend(facts)
+            current_solution.extend(facts)
     
-    return solution_facts
+    # Add the last solution
+    if current_solution:
+        all_solutions.append(current_solution)
+    
+    # For backward compatibility, return the first solution as a flat list
+    return all_solutions[0] if all_solutions else []
+
+
+def parse_all_clingo_solutions(clingo_output: str) -> List[List[str]]:
+    """Parse clingo output to extract all solution facts."""
+    all_solutions = []
+    
+    lines = clingo_output.split('\n')
+    current_solution = []
+    in_answer = False
+    
+    for line in lines:
+        line = line.strip()
+        
+        if line.startswith('Answer:'):
+            # Save previous solution if exists
+            if current_solution:
+                all_solutions.append(current_solution)
+                current_solution = []
+            in_answer = True
+            continue
+        
+        if in_answer and line:
+            if line.startswith('SATISFIABLE') or line.startswith('UNSATISFIABLE') or line.startswith('Models'):
+                break
+            
+            # Extract facts from the answer line
+            facts = line.split()
+            current_solution.extend(facts)
+    
+    # Add the last solution
+    if current_solution:
+        all_solutions.append(current_solution)
+    
+    return all_solutions
 
 
 def format_solution(solution_facts: List[str]) -> str:
@@ -188,6 +232,107 @@ def format_solution(solution_facts: List[str]) -> str:
         output.append(f"\n{predicate.upper()}:")
         for fact in sorted(facts):
             output.append(f"  {fact}")
+    
+    return '\n'.join(output)
+
+
+def format_all_solutions(clingo_output: str) -> str:
+    """Format all solutions from clingo output in a readable way."""
+    all_solutions = parse_all_clingo_solutions(clingo_output)
+    
+    if not all_solutions:
+        return "No solutions found."
+    
+    output = []
+    
+    # Extract number of models from clingo output
+    lines = clingo_output.split('\n')
+    models_info = ""
+    for line in lines:
+        if line.strip().startswith('Models'):
+            models_info = line.strip()
+            break
+    
+    output.append(f"🎯 FOUND {len(all_solutions)} SOLUTION(S)")
+    if models_info:
+        output.append(f"📊 {models_info}")
+    output.append("=" * 60)
+    
+    for i, solution in enumerate(all_solutions, 1):
+        output.append(f"\n🔸 SOLUTION {i}:")
+        output.append("-" * 40)
+        
+        # Group facts by predicate for readability
+        fact_groups = {}
+        for fact in solution:
+            if '(' in fact and not fact.startswith('clue(') and not fact.startswith('object(') and not fact.startswith('target('):
+                predicate = fact.split('(')[0]
+                if predicate not in fact_groups:
+                    fact_groups[predicate] = []
+                fact_groups[predicate].append(fact)
+        
+        # Display match facts organized by position/house
+        if 'match' in fact_groups:
+            output.append("\n📋 ASSIGNMENTS:")
+            
+            # Parse all match facts and organize by position
+            position_assignments = {}
+            
+            for fact in fact_groups['match']:
+                if fact.startswith('match('):
+                    parts = fact[6:-1].split(',')  # Remove match( and )
+                    if len(parts) == 4:
+                        attr1, val1, attr2, val2 = parts
+                        
+                        # Find position-based matches
+                        if attr1.endswith('position'):
+                            position = val1.replace('position_', '')
+                            if position not in position_assignments:
+                                position_assignments[position] = {}
+                            position_assignments[position][attr2] = val2
+                        elif attr2.endswith('position'):
+                            position = val2.replace('position_', '')
+                            if position not in position_assignments:
+                                position_assignments[position] = {}
+                            position_assignments[position][attr1] = val1
+            
+            # Display each position with all its attributes
+            for position in sorted(position_assignments.keys(), key=int):
+                output.append(f"\n  Position {position}:")
+                attrs = position_assignments[position]
+                
+                # Sort attributes for consistent display
+                for attr_name in sorted(attrs.keys()):
+                    value = attrs[attr_name]
+                    clean_attr = attr_name.replace('_', ' ').title()
+                    clean_value = value.replace('_', ' ').title()
+                    output.append(f"    {clean_attr}: {clean_value}")
+                
+            output.append("")
+        
+        # Display input facts organized by attribute
+        if 'input' in fact_groups:
+            output.append("\n📝 ATTRIBUTE VALUES:")
+            
+            # Group input facts by attribute
+            attr_values = {}
+            for fact in fact_groups['input']:
+                if fact.startswith('input('):
+                    parts = fact[6:-1].split(',')  # Remove input( and )
+                    if len(parts) == 3:
+                        attr, pos, val = parts
+                        if attr not in attr_values:
+                            attr_values[attr] = []
+                        attr_values[attr].append((int(pos), val))
+            
+            # Display each attribute nicely
+            for attr, values in sorted(attr_values.items()):
+                values.sort()  # Sort by position
+                output.append(f"  {attr.replace('_', ' ').title()}:")
+                for pos, val in values:
+                    clean_val = val.replace('_', ' ').replace('n', '').title()
+                    output.append(f"    {pos}. {clean_val}")
+                output.append("")
     
     return '\n'.join(output)
 
@@ -285,8 +430,8 @@ def main():
     )
     parser.add_argument(
         "-e", "--encoding",
-        default="encodings/logic-puzzles.lp",
-        help="Path to ASP encoding file (default: encodings/logic-puzzles.lp)"
+        default="../encodings/logic-puzzles.lp",
+        help="Path to ASP encoding file (default: ../encodings/logic-puzzles.lp)"
     )
     parser.add_argument(
         "--no-solve",
@@ -527,10 +672,9 @@ def main():
     if success:
         print("\n🎉 PUZZLE SOLVED!")
         
-        # Format and display solution
-        formatted_solution = format_solution(solution_facts)
-        print("\n📋 SOLUTION:")
-        print(formatted_solution)
+        # Format and display all solutions nicely
+        formatted_solutions = format_all_solutions(raw_output)
+        print(formatted_solutions)
         
         if args.verbose and raw_output:
             print("\n🔍 Raw clingo output:")
