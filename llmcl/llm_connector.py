@@ -529,17 +529,36 @@ Extract all attributes and their possible values. Return as JSON."""
 
 IMPORTANT: Complex clues may require MULTIPLE ASP clue facts. Decompose the logic completely.
 
-CLUE TYPES (including compound types):
+⚡ FUNDAMENTAL RULE: When clues mention DIRECTIONAL IMMEDIACY (like "immediately to the right", "directly before"), they express TWO constraints simultaneously:
+1. ORDERING constraint (one thing comes before/after another) → Generate separate "less" clue
+2. ADJACENCY constraint (they are next to each other) → Generate separate "next" clue
+
+SOLUTION: Create TWO separate ASP clue facts with different sub_ids (e.g., "6a" for less, "6b" for next)
+
+CLUE TYPES (separate facts only):
 - same: Attributes belong together in the solution
 - diff: Attributes cannot belong together  
 - less: Ordering constraint (smaller position → smaller target value)
 - next: Adjacent/consecutive constraint (consecutive positions → consecutive target values)
-- "(less;next)": X is immediately before Y (both ordering + adjacency)
 
-COMPOUND TYPE DETECTION:
-- If clue expresses BOTH ordering AND adjacency → use compound type
-- Keywords indicating immediacy/adjacency: "immediately", "directly", "next to"
-- Keywords indicating ordering: "before", "after", positional terms
+DIRECTIONAL IMMEDIACY DECOMPOSITION:
+For clues like "A is immediately to the right of B":
+→ Generate TWO separate clue facts:
+  1. clue(Na,less) + objects + target (for ordering: A comes after B)
+  2. clue(Nb,next) + objects + target (for adjacency: A and B are adjacent)
+
+EXAMPLES OF DIRECTIONAL IMMEDIACY:
+- "A is immediately to the right of B" → TWO clues:
+  * sub_id "6a": type "less", A at pos 2, B at pos 1 (B < A in ordering)
+  * sub_id "6b": type "next", A at pos 1, B at pos 2 (A and B adjacent)
+- "X comes directly before Y" → TWO clues:
+  * sub_id "7a": type "less", X at pos 1, Y at pos 2 (X < Y in ordering)  
+  * sub_id "7b": type "next", X at pos 1, Y at pos 2 (X and Y adjacent)
+
+SINGLE TYPE EXAMPLES:
+- "A comes before B" → clue(N,less) only (ordering without adjacency)
+- "X and Y are next to each other" → clue(N,next) only (adjacency without direction)
+- "A lives with B" → clue(N,same) only (co-location)
 
 COMPLEX CLUE DECOMPOSITION:
 Identify clue patterns and decompose appropriately:
@@ -564,18 +583,24 @@ PATTERN 4 - "X is immediately before OR immediately after Y" (bidirectional adja
 → object(N,1,attr1,X), object(N,2,attr2,Y)
 → target(N,ordering_attribute)
 
-PATTERN 5 - "X is immediately before Y" (directional adjacency):
-→ clue(N,next): X is immediately before Y  
-→ object(N,1,attr1,X), object(N,2,attr2,Y)
-→ target(N,ordering_attribute)
+PATTERN 5 - "X is immediately before Y" (directional immediacy - DECOMPOSE INTO TWO):
+→ clue(N1,less): X comes before Y in ordering
+→ object(N1,1,attr1,X), object(N1,2,attr2,Y), target(N1,ordering_attribute)
+→ clue(N2,next): X and Y are adjacent  
+→ object(N2,1,attr1,X), object(N2,2,attr2,Y), target(N2,ordering_attribute)
+
+PATTERN 6 - "A is immediately to the right of B" (directional immediacy - DECOMPOSE INTO TWO):
+→ clue(N1,less): B comes before A in ordering (B < A)
+→ object(N1,1,attr1,B), object(N1,2,attr2,A), target(N1,ordering_attribute)
+→ clue(N2,next): B and A are adjacent
+→ object(N2,1,attr1,B), object(N2,2,attr2,A), target(N2,ordering_attribute)
 
 CRITICAL: 
 - For "same" clues with disjunction: Put BOTH options at position 1, and the shared property at position 2
 - For "diff" clues: Put different entities at different positions
-- For "next" clues: SINGLE clue handles "before OR after" automatically - don't split into multiple clues
 - For "less" clues: Handle ordering constraints where smaller position → smaller target value
+- For directional immediacy (like "immediately to the right"): Generate TWO separate clues
 - Don't add unnecessary exclusivity rules - stick to the explicit logic
-- "OR" in adjacency contexts (before OR after) = single next clue, not multiple clues
 
 AVAILABLE ATTRIBUTES (JSON):
 {json.dumps(attributes, indent=2)}
@@ -634,6 +659,26 @@ Return JSON with this structure for MULTIPLE clues:
         {{"position": 2, "attribute": "type_2", "value": "entity_b"}}
       ],
       "target_attribute": "ordering_attribute"
+    }},
+    {{
+      "sub_id": "6a",
+      "type": "less",
+      "description": "Cave house comes before valley house in position (ordering)",
+      "objects": [
+        {{"position": 1, "attribute": "house_type", "value": "cave"}},
+        {{"position": 2, "attribute": "house_type", "value": "valley"}}
+      ],
+      "target_attribute": "house_position"
+    }},
+    {{
+      "sub_id": "6b", 
+      "type": "next",
+      "description": "Cave house and valley house are adjacent in position",
+      "objects": [
+        {{"position": 1, "attribute": "house_type", "value": "cave"}},
+        {{"position": 2, "attribute": "house_type", "value": "valley"}}
+      ],
+      "target_attribute": "house_position"
     }}
   ]
 }}
@@ -642,6 +687,8 @@ CRITICAL RULES:
 - Decompose complex logic into multiple simple ASP clues
 - Use sub_id like "2a", "2b", "2c" for clues derived from the same source  
 - Each ASP clue should express ONE logical relationship
+- For DIRECTIONAL IMMEDIACY: Generate TWO separate clues (e.g., "6a" for less, "6b" for next)
+- NEVER use compound syntax like "(less;next)" - always separate clue facts
 - Use ONLY exact attribute names and values from the ASP format above
 
 POSITION RULES FOR ASP CLUES:
@@ -1061,7 +1108,10 @@ Use step-by-step logical reasoning to find the exact values for each placeholder
             {"role": "user", "content": user_prompt}
         ]
         
-        if self.verbose:
+        if not self.interactive:
+            print(f"     🧠 Found {len(placeholders)} placeholders to resolve")
+            print(f"     🎯 Sampling 3 derivation attempts for best results...")
+        elif self.verbose:
             print("🧠 Using deep reasoning to derive missing values...")
             print(f"  - Found {len(placeholders)} placeholders to resolve")
             print("  - Sampling 3 derivation attempts...")
@@ -1069,7 +1119,9 @@ Use step-by-step logical reasoning to find the exact values for each placeholder
         # Sample 3 different derivation attempts
         derivation_attempts = []
         for attempt in range(3):
-            if self.verbose:
+            if not self.interactive:
+                print(f"     ⚡ Attempt {attempt + 1}/3...")
+            elif self.verbose:
                 print(f"    • Attempt {attempt + 1}/3...")
             
             try:
@@ -1382,8 +1434,7 @@ Choose the best attempt and explain your reasoning."""
                 "clues": []
             }
         
-        if self.verbose:
-            print("🔄 Phase 1: Extracting attributes and values...")
+        print("  🔄 1.1: Extracting attributes and values...")
         
         # Phase 1: Extract inputs (with interactive confirmation)
         inputs_result = self.extract_puzzle_inputs(puzzle_data)
@@ -1391,9 +1442,9 @@ Choose the best attempt and explain your reasoning."""
         attributes = inputs_result.get('attributes', {})
         primary_attribute = inputs_result.get('primary_attribute', list(attributes.keys())[0] if attributes else 'position')
         
+        print(f"  ✅ Found {len(attributes)} attributes")
         if self.verbose:
-            print(f"  - Found {len(attributes)} attributes")
-            print(f"  - Primary attribute: {primary_attribute}")
+            print(f"     - Primary attribute: {primary_attribute}")
         
         # Phase 2: Handle placeholders - either derive exact values or create constraint rules
         constraint_rules = {'constraints': [], 'value_definitions': []}
@@ -1408,20 +1459,18 @@ Choose the best attempt and explain your reasoning."""
         if has_placeholders:
             if force_derive:
                 # Phase 2A: Force-derive mode - derive exact values instead of constraint rules
-                if self.verbose:
-                    print("\n🧠 Phase 2: Force-deriving exact values...")
+                print("  🔄 1.2: Force-deriving exact values with deep reasoning...")
                 
                 if self.interactive:
                     attributes = self._interactive_derive_values(puzzle_data, attributes)
                 else:
                     attributes = self.derive_missing_values(puzzle_data, attributes)
                 
-                if self.verbose:
-                    derived_count = sum(1 for values in attributes.values() 
-                                      for value in values 
-                                      if not (value.startswith('unknown_') or value.startswith('derived_')))
-                    total_count = sum(len(values) for values in attributes.values())
-                    print(f"  - Derived {derived_count}/{total_count} values exactly")
+                derived_count = sum(1 for values in attributes.values() 
+                                  for value in values 
+                                  if not (value.startswith('unknown_') or value.startswith('derived_')))
+                total_count = sum(len(values) for values in attributes.values())
+                print(f"  ✅ Derived {derived_count}/{total_count} values exactly")
                 
                 # Check if any placeholders remain unresolved
                 remaining_placeholders = []
@@ -1454,15 +1503,16 @@ Choose the best attempt and explain your reasoning."""
                     print(f"  - Generated {constraints_count} constraint rules")
                     print(f"  - Generated {definitions_count} value definitions")
         
-        if self.verbose:
-            print("\n🔄 Phase 3: Processing clues...")
+        print("  🔄 1.3: Processing clues...")
         
         # Phase 3: Extract clues (with interactive confirmation for each clue)
         # Now the LLM knows what all placeholders mean from Phase 2
         clues = []
-        for clue in puzzle_data.get('clues', []):
+        total_clues = len(puzzle_data.get('clues', []))
+        
+        for i, clue in enumerate(puzzle_data.get('clues', []), 1):
             if self.verbose:
-                print(f"  - Processing clue {clue['id']}...")
+                print(f"     - Processing clue {clue['id']} ({i}/{total_clues})...")
             
             clue_result = self.extract_clue_facts(clue, attributes, primary_attribute, constraint_rules)
             
@@ -1470,8 +1520,7 @@ Choose the best attempt and explain your reasoning."""
             clue_result['description'] = clue['text']
             clues.append(clue_result)
         
-        if self.verbose:
-            print(f"  - Processed {len(clues)} clues")
+        print(f"  ✅ Processed {len(clues)} clues")
         
         return {
             'attributes': attributes,
@@ -1533,3 +1582,53 @@ Please review and refine this extraction, ensuring all clues are properly captur
                 print("Raw response:")
                 print(response)
             raise ValueError(f"Failed to parse JSON response for {context}: {e}") 
+
+    def extract_inputs_only(self, puzzle_description: str, force_derive: bool = False) -> Dict[str, Any]:
+        """
+        Extract just the inputs (entities, attributes) from puzzle text.
+        
+        Args:
+            puzzle_description: Natural language description or JSON string
+            force_derive: Whether to force-derive missing values
+            
+        Returns:
+            Dictionary containing attributes and primary_attribute only
+        """
+        # Try to parse as JSON first
+        try:
+            puzzle_data = json.loads(puzzle_description)
+        except json.JSONDecodeError:
+            # Fallback: treat as plain text description
+            puzzle_data = {
+                "description": puzzle_description,
+                "clues": []
+            }
+        
+        # Extract just the inputs (attributes and values)
+        inputs_result = self.extract_puzzle_inputs(puzzle_data)
+        return inputs_result
+    
+    def process_single_clue(self, puzzle_text: str, inputs_info: Dict[str, Any], 
+                           clue_text: str, clue_id: str) -> Dict[str, Any]:
+        """
+        Process a single clue given the inputs information.
+        
+        Args:
+            puzzle_text: Original puzzle text for context
+            inputs_info: Dictionary with attributes and primary_attribute
+            clue_text: Text of the clue to process
+            clue_id: ID/number of the clue
+            
+        Returns:
+            Dictionary containing clue extraction results
+        """
+        # Create clue object
+        clue = {"id": clue_id, "text": clue_text}
+        
+        # Extract attributes and primary attribute
+        attributes = inputs_info.get('attributes', {})
+        primary_attribute = inputs_info.get('primary_attribute', '')
+        
+        # Process the clue
+        clue_result = self.extract_clue_facts(clue, attributes, primary_attribute)
+        return clue_result 

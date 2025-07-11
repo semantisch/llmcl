@@ -362,6 +362,80 @@ class ASPGenerator:
         
         return result
     
+    def generate_input_facts(self, inputs_info: Dict[str, Any]) -> str:
+        """
+        Generate ASP input facts from inputs information only.
+        
+        Args:
+            inputs_info: Dictionary with attributes and primary_attribute
+            
+        Returns:
+            String containing input facts and index fact
+        """
+        attributes = inputs_info.get('attributes', {})
+        primary_attribute = inputs_info.get('primary_attribute', '')
+        
+        # Generate input facts
+        input_facts = self._generate_input_facts(attributes)
+        index_fact = self._generate_index_fact(primary_attribute)
+        
+        # Combine with comments
+        asp_facts = []
+        asp_facts.append("% Input facts (entities and attributes)")
+        asp_facts.append(input_facts)
+        asp_facts.append("")
+        asp_facts.append("% Primary attribute for ordering")
+        asp_facts.append(index_fact)
+        
+        return '\n'.join(asp_facts)
+    
+    def generate_clue_facts(self, clue_extraction: Dict[str, Any], clue_id: str) -> str:
+        """
+        Generate ASP facts for a single clue extraction.
+        
+        Args:
+            clue_extraction: Dictionary containing clue extraction results
+            clue_id: ID of the clue
+            
+        Returns:
+            String containing ASP facts for this clue
+        """
+        facts = []
+        
+        # Add comment with original clue text if available
+        clue_text = clue_extraction.get('description', '')
+        if clue_text:
+            facts.append(f"% Clue {clue_id}: {clue_text}")
+        
+        # Handle both multi-clue and single-clue formats
+        if 'clues' in clue_extraction:
+            # Multi-clue format
+            sub_clues = clue_extraction['clues']
+            
+            for sub_clue in sub_clues:
+                sub_id = sub_clue.get('sub_id', '')
+                sub_description = sub_clue.get('description', '')
+                
+                # Generate unique ASP clue ID
+                if sub_id:
+                    sanitized_sub_id = sub_id.replace('_', 'c')
+                    asp_clue_id = f"c{clue_id}{sanitized_sub_id}"
+                else:
+                    asp_clue_id = f"c{clue_id}s{len(facts) + 1}"
+                
+                # Add comment for sub-clue
+                if sub_description:
+                    facts.append(f"% Sub-clue {asp_clue_id}: {sub_description}")
+                
+                # Generate ASP facts for this sub-clue
+                self._generate_single_clue_facts(facts, asp_clue_id, sub_clue)
+                facts.append("")  # Empty line between sub-clues
+        else:
+            # Single-clue format - use the clue_id directly
+            self._generate_single_clue_facts(facts, f"c{clue_id}", clue_extraction)
+        
+        return '\n'.join(facts)
+    
     def validate_asp_syntax(self, asp_facts: str) -> bool:
         """
         Basic validation of ASP syntax.

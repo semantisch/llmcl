@@ -3,24 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLMCL - Logic Puzzle Clue Extractor</title>
+    <title>LLMCL - Granular Logic Puzzle Solver</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     <style>
         .container-fluid { max-width: 1400px; }
-        .puzzle-input { height: 300px; }
-        .asp-output { height: 400px; }
-        .solution-output { height: 200px; }
-        .loading { display: none; }
-        .spinner-border { width: 1rem; height: 1rem; }
-        .results-section { display: none; }
-        .error-alert { display: none; }
-        .badge-success { background-color: #28a745; }
-        .badge-danger { background-color: #dc3545; }
-        .badge-warning { background-color: #ffc107; color: #212529; }
-        pre { background-color: #f8f9fa; padding: 1rem; border-radius: 0.375rem; }
-        .model-help { font-size: 0.875em; color: #6c757d; }
+        .step { display: none; }
+        .step.active { display: block; }
+        .step-header { 
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .step-content { 
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .result-box {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        .result-box.edited {
+            border-color: #ffc107;
+            background-color: #fff9c4;
+        }
+        .result-box.success {
+            border-color: #28a745;
+        }
+        .result-box.error {
+            border-color: #dc3545;
+        }
+        .result-header {
+            background: #e9ecef;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #dee2e6;
+            border-radius: 0.5rem 0.5rem 0 0;
+            font-weight: 600;
+        }
+        .result-content {
+            padding: 1rem;
+        }
+        .editable-result {
+            width: 100%;
+            min-height: 200px;
+            border: none;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            line-height: 1.4;
+            resize: vertical;
+        }
+        .clue-box {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .clue-box.processing {
+            border-color: #007bff;
+            animation: pulse 1s infinite;
+        }
+        .clue-box.completed {
+            border-color: #28a745;
+        }
+        .clue-box.edited {
+            border-color: #ffc107;
+            background-color: #fff9c4;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        .progress-bar-container {
+            background: #e9ecef;
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: 2rem;
+        }
+        .progress-bar-fill {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        .btn-step {
+            min-width: 120px;
+        }
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+        .step-content {
+            position: relative;
+        }
+        .encoding-box {
+            background: #f1f3f4;
+            border: 1px solid #dadce0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .summary-stats {
+            background: #e7f3ff;
+            border: 1px solid #a6c8ff;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -30,196 +134,385 @@
             <div class="col-12">
                 <h1 class="display-4 text-center mb-3">
                     🧩 LLMCL
-                    <small class="text-muted fs-6">Logic Puzzle Clue Extractor</small>
+                    <small class="text-muted fs-6">Granular Step-by-Step Logic Puzzle Solver</small>
                 </h1>
                 <p class="text-center text-muted">
-                    Extract ASP facts from natural language puzzle descriptions using LLMs
+                    Input → ASP Input Facts → ASP Clue Facts (One-by-One) → Show Encoding → Final ASP → Solve
                 </p>
             </div>
         </div>
 
-        <!-- Main Form -->
-        <form id="puzzleForm">
-            <div class="row">
-                <!-- Input Section -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-header">
-                            <h5 class="card-title mb-0">📝 Puzzle Input</h5>
-                        </div>
-                        <div class="card-body">
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBar" style="width: 16%"></div>
+        </div>
+
+        <!-- Step 1: Input Puzzle -->
+        <div class="step active" id="step1">
+            <div class="step-header">
+                <h3>🏁 Step 1: Input Puzzle</h3>
+                <p class="mb-0">Enter your logic puzzle to begin extraction</p>
+            </div>
+            
+            <div class="step-content">
+                <div class="loading-overlay" id="loading1">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary mb-2" role="status"></div>
+                        <div>Extracting inputs...</div>
+                    </div>
+                </div>
+
+                <form id="step1Form">
+                    <div class="row">
+                        <div class="col-lg-8">
                             <div class="mb-3">
-                                <label for="puzzle_text" class="form-label">Puzzle Description (JSON or Plain Text)</label>
+                                <label for="puzzle_text" class="form-label">Puzzle Description (JSON)</label>
                                 <textarea 
-                                    class="form-control puzzle-input font-monospace" 
+                                    class="form-control font-monospace" 
                                     id="puzzle_text" 
                                     name="puzzle_text" 
+                                    rows="15"
                                     placeholder="Enter your logic puzzle description here..."
                                     required>{{ sample_puzzle }}</textarea>
                                 <div class="form-text">
-                                    You can input either structured JSON (as shown) or plain text description.
+                                    Enter your puzzle in JSON format.
                                 </div>
                             </div>
-
+                        </div>
+                        
+                        <div class="col-lg-4">
                             <!-- Model Selection -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="model" class="form-label">🤖 LLM Model</label>
-                                    <select class="form-select" id="model" name="model">
-                                        <optgroup label="OpenAI Models">
-                                            <option value="gpt-4" selected>GPT-4 (Recommended)</option>
-                                            <option value="gpt-4-turbo">GPT-4 Turbo</option>
-                                            <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Faster)</option>
-                                        </optgroup>
-                                        <optgroup label="Anthropic Models">
-                                            <option value="claude-3-5-sonnet-20241022">Claude 3.5 Sonnet (Excellent)</option>
-                                            <option value="claude-3-haiku-20240307">Claude 3 Haiku (Fast)</option>
-                                            <option value="claude-3-opus-20240229">Claude 3 Opus (Premium)</option>
-                                        </optgroup>
-                                    </select>
-                                    <div class="model-help">
-                                        OpenAI models need OPENAI_API_KEY, Claude models need ANTHROPIC_API_KEY
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="api_key" class="form-label">🔑 API Key (Optional)</label>
-                                    <input 
-                                        type="password" 
-                                        class="form-control" 
-                                        id="api_key" 
-                                        name="api_key"
-                                        placeholder="Leave empty to use env variables">
-                                    <div class="form-text">
-                                        Override environment variable if needed
-                                    </div>
-                                </div>
+                            <div class="mb-3">
+                                <label for="model" class="form-label">🤖 LLM Model</label>
+                                <select class="form-select" id="model" name="model">
+                                    <optgroup label="OpenAI Latest Models">
+                                        <option value="gpt-4o" selected>GPT-4o (Recommended)</option>
+                                        <option value="gpt-4.1">GPT-4.1 (Latest)</option>
+                                        <option value="gpt-4.1-mini">GPT-4.1 Mini (Fast)</option>
+                                        <option value="gpt-4.1-nano">GPT-4.1 Nano (Ultra Fast)</option>
+                                        <option value="o3">o3 (Reasoning)</option>
+                                        <option value="o4-mini">o4 Mini</option>
+                                    </optgroup>
+                                    <optgroup label="OpenAI GPT-4o Series">
+                                        <option value="gpt-4o-mini">GPT-4o Mini</option>
+                                        <option value="gpt-4o-realtime-preview">GPT-4o Realtime</option>
+                                        <option value="gpt-4o-mini-tts">GPT-4o Mini TTS</option>
+                                    </optgroup>
+                                    <optgroup label="OpenAI Legacy">
+                                        <option value="gpt-4">GPT-4 (Classic)</option>
+                                        <option value="gpt-4-turbo">GPT-4 Turbo</option>
+                                        <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                                    </optgroup>
+                                    <optgroup label="Anthropic Claude 4 Series">
+                                        <option value="claude-opus-4-20250514">Claude Opus 4 (Premium)</option>
+                                        <option value="claude-sonnet-4-20250514">Claude Sonnet 4 (Excellent)</option>
+                                    </optgroup>
+                                    <optgroup label="Anthropic Claude 3.7 & 3.5 Series">
+                                        <option value="claude-3-7-sonnet-20250219">Claude 3.7 Sonnet (Latest)</option>
+                                        <option value="claude-3-5-sonnet-20241022">Claude 3.5 Sonnet v2</option>
+                                        <option value="claude-3-5-sonnet-20240620">Claude 3.5 Sonnet v1</option>
+                                        <option value="claude-3-5-haiku-20241022">Claude 3.5 Haiku (Fast)</option>
+                                    </optgroup>
+                                    <optgroup label="Anthropic Claude 3 Legacy">
+                                        <option value="claude-3-haiku-20240307">Claude 3 Haiku</option>
+                                        <option value="claude-3-opus-20240229">Claude 3 Opus</option>
+                                    </optgroup>
+                                </select>
+                                <div class="form-text">Choose your preferred AI model</div>
                             </div>
 
-                            <!-- Options -->
+                            <div class="mb-3">
+                                <label for="api_key" class="form-label">🔑 API Key (Optional)</label>
+                                <input 
+                                    type="password" 
+                                    class="form-control" 
+                                    id="api_key" 
+                                    name="api_key"
+                                    placeholder="Leave empty to use defaults">
+                                <div class="form-text">Override default API key if needed</div>
+                            </div>
+
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="verbose" name="verbose">
-                                    <label class="form-check-label" for="verbose">
-                                        Enable verbose output
-                                    </label>
+                                    <input class="form-check-input" type="checkbox" id="verbose" name="verbose" checked>
+                                    <label class="form-check-label" for="verbose">Enable verbose output</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="force_derive" name="force_derive">
-                                    <label class="form-check-label" for="force_derive">
-                                        Force-derive missing values (deep reasoning mode)
-                                    </label>
-                                    <div class="form-text">
-                                        Uses advanced reasoning to derive exact values instead of placeholders
-                                    </div>
+                                    <input class="form-check-input" type="checkbox" id="force_derive" name="force_derive" checked>
+                                    <label class="form-check-label" for="force_derive">Force-derive missing values</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="auto_fix" name="auto_fix" checked>
+                                    <label class="form-check-label" for="auto_fix">Auto-fix syntax errors with AI</label>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary btn-lg w-100">
-                                <span class="loading">
-                                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-                                    Processing...
-                                </span>
-                                <span class="not-loading">
-                                    🚀 Extract Clues & Solve Puzzle
-                                </span>
-                            </button>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary btn-step">
+                            🚀 Extract Inputs
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Step 2: Review Inputs -->
+        <div class="step" id="step2">
+            <div class="step-header">
+                <h3>🏗️ Step 2: Review Extracted Inputs</h3>
+                <p class="mb-0">Review and edit the extracted entities and attributes</p>
+            </div>
+            
+            <div class="step-content">
+                <div class="loading-overlay" id="loading2">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary mb-2" role="status"></div>
+                        <div>Starting clue processing...</div>
+                    </div>
+                </div>
+
+                <div class="result-box" id="inputsResult">
+                    <div class="result-header">
+                        📊 Extracted Input Facts (ASP Format)
+                        <span class="badge bg-info ms-2" id="inputsStatus">Ready for Review</span>
+                    </div>
+                    <div class="result-content">
+                        <textarea class="editable-result" id="inputsData" placeholder="ASP input facts will appear here..."></textarea>
+                        <div class="form-text">
+                            Edit the ASP input facts if needed. These define entities, attributes, and their values.
                         </div>
                     </div>
                 </div>
 
-                <!-- Results Section -->
-                <div class="col-lg-6">
-                    <div class="card h-100">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h5 class="card-title mb-0">📊 Results</h5>
-                            <div id="statusBadges"></div>
-                        </div>
-                        <div class="card-body">
-                            <!-- Error Display -->
-                            <div id="errorAlert" class="alert alert-danger error-alert">
-                                <h6>❌ Error</h6>
-                                <div id="errorMessage"></div>
-                            </div>
-
-                            <!-- Results Tabs -->
-                            <div id="resultsSection" class="results-section">
-                                <ul class="nav nav-tabs" id="resultsTabs" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="asp-tab" data-bs-toggle="tab" data-bs-target="#asp" type="button" role="tab">ASP Facts</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="solution-tab" data-bs-toggle="tab" data-bs-target="#solution" type="button" role="tab">Solution</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="structure-tab" data-bs-toggle="tab" data-bs-target="#structure" type="button" role="tab">Structure</button>
-                                    </li>
-                                </ul>
-                                
-                                <div class="tab-content mt-3" id="resultsTabContent">
-                                    <!-- ASP Facts Tab -->
-                                    <div class="tab-pane fade show active" id="asp" role="tabpanel">
-                                        <h6>Generated ASP Facts:</h6>
-                                        <pre id="aspFacts" class="asp-output"></pre>
-                                        <div id="syntaxErrors" class="mt-2"></div>
-                                    </div>
-                                    
-                                    <!-- Solution Tab -->
-                                    <div class="tab-pane fade" id="solution" role="tabpanel">
-                                        <h6>Puzzle Solution:</h6>
-                                        <div id="solutionStatus" class="mb-2"></div>
-                                        <pre id="solutionOutput" class="solution-output"></pre>
-                                        <div id="solutionFacts" class="mt-2"></div>
-                                    </div>
-                                    
-                                    <!-- Structure Tab -->
-                                    <div class="tab-pane fade" id="structure" role="tabpanel">
-                                        <h6>Extracted Structure:</h6>
-                                        <pre id="structureInfo"></pre>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Initial Help Text -->
-                            <div id="helpText" class="text-center text-muted py-5">
-                                <p class="lead">👆 Fill in your puzzle above and click "Extract Clues & Solve Puzzle" to see the results here.</p>
-                                <p>The sample puzzle is already loaded to get you started!</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-secondary btn-step" onclick="goToStep(1)">
+                        ← Back
+                    </button>
+                    <button type="button" class="btn btn-primary btn-step" onclick="startClueProcessing()">
+                        Process Clues →
+                    </button>
                 </div>
             </div>
-        </form>
-    </div>
-
-    <!-- Footer -->
-    <footer class="mt-5 py-3 bg-light">
-        <div class="container-fluid text-center text-muted">
-            <p class="mb-0">LLMCL - Logic Puzzle Clue Extractor | Built with Flask & Bootstrap</p>
-            <small>Supports OpenAI GPT and Anthropic Claude models</small>
         </div>
-    </footer>
+
+        <!-- Step 3: Process Clues One by One -->
+        <div class="step" id="step3">
+            <div class="step-header">
+                <h3>🔍 Step 3: Process Clues One by One</h3>
+                <p class="mb-0">Review and edit each clue's ASP facts as they are generated</p>
+            </div>
+            
+            <div class="step-content">
+                <div class="summary-stats" id="clueStats">
+                    <h6>Processing Progress</h6>
+                    <div class="d-flex justify-content-between">
+                        <span>Clues Processed: <strong id="processedCount">0</strong> / <strong id="totalCount">0</strong></span>
+                        <span>Status: <span id="processingStatus">Ready to start</span></span>
+                    </div>
+                </div>
+
+                <div id="cluesList"></div>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-secondary btn-step" onclick="goToStep(2)">
+                        ← Back
+                    </button>
+                    <button type="button" class="btn btn-primary btn-step" id="nextAfterClues" onclick="showEncoding()" disabled>
+                        View Encoding →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Show Encoding -->
+        <div class="step" id="step4">
+            <div class="step-header">
+                <h3>📋 Step 4: Logic Puzzle Encoding</h3>
+                <p class="mb-0">View the ASP encoding rules that will be used to solve the puzzle</p>
+            </div>
+            
+            <div class="step-content">
+                <div class="loading-overlay" id="loading4">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary mb-2" role="status"></div>
+                        <div>Loading encoding content...</div>
+                    </div>
+                </div>
+
+                <div class="result-box" id="encodingResult">
+                    <div class="result-header">
+                        📋 ASP Encoding File
+                        <span class="badge bg-info ms-2" id="encodingStatus">Loading...</span>
+                    </div>
+                    <div class="result-content">
+                        <div class="encoding-box">
+                            <pre id="encodingContent">Encoding content will appear here...</pre>
+                        </div>
+                        <div class="form-text">
+                            This file contains the ASP rules that define how logic puzzles work.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-secondary btn-step" onclick="goToStep(3)">
+                        ← Back
+                    </button>
+                    <button type="button" class="btn btn-primary btn-step" onclick="generateASP()">
+                        Generate ASP Facts →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Generate ASP Facts -->
+        <div class="step" id="step5">
+            <div class="step-header">
+                <h3>⚙️ Step 5: Generate ASP Facts</h3>
+                <p class="mb-0">Review and edit the final ASP facts before solving</p>
+            </div>
+            
+            <div class="step-content">
+                <div class="loading-overlay" id="loading5">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary mb-2" role="status"></div>
+                        <div>Generating ASP facts...</div>
+                    </div>
+                </div>
+
+                <div class="result-box" id="aspResult">
+                    <div class="result-header">
+                        🔧 Generated ASP Facts
+                        <span class="badge bg-info ms-2" id="aspStatus">Generated</span>
+                    </div>
+                    <div class="result-content">
+                        <textarea class="editable-result" id="aspData" placeholder="ASP facts will appear here..." style="min-height: 400px;"></textarea>
+                        <div class="form-text">
+                            Edit the ASP facts if needed. These define the specific puzzle constraints.
+                        </div>
+                        
+                        <div id="syntaxErrors" class="mt-2"></div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-secondary btn-step" onclick="goToStep(4)">
+                        ← Back
+                    </button>
+                    <button type="button" class="btn btn-warning btn-step me-2" onclick="validateASP()">
+                        🔍 Validate Syntax
+                    </button>
+                    <button type="button" class="btn btn-primary btn-step" onclick="solvePuzzle()">
+                        Solve Puzzle →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 6: Solution -->
+        <div class="step" id="step6">
+            <div class="step-header">
+                <h3>🎉 Step 6: Puzzle Solution</h3>
+                <p class="mb-0">View the solved puzzle and formatted results</p>
+            </div>
+            
+            <div class="step-content">
+                <div class="loading-overlay" id="loading6">
+                    <div class="text-center">
+                        <div class="spinner-border text-primary mb-2" role="status"></div>
+                        <div>Solving puzzle...</div>
+                    </div>
+                </div>
+
+                <div class="result-box" id="solutionResult">
+                    <div class="result-header">
+                        🏆 Puzzle Solution
+                        <span class="badge bg-success ms-2" id="solutionStatus">Solved!</span>
+                    </div>
+                    <div class="result-content">
+                        <div id="formattedSolution"></div>
+                        <div id="rawSolution" class="mt-3" style="display: none;">
+                            <h6>Raw Output:</h6>
+                            <pre id="solutionOutput"></pre>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary mt-2" onclick="toggleRawSolution()">
+                            Toggle Raw Output
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <button type="button" class="btn btn-secondary btn-step" onclick="goToStep(5)">
+                        ← Back
+                    </button>
+                    <button type="button" class="btn btn-success btn-step" onclick="startOver()">
+                        🔄 Start Over
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Display -->
+        <div id="errorAlert" class="alert alert-danger" style="display: none;">
+            <h6>❌ Error</h6>
+            <div id="errorMessage"></div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
-        // Form submission handling
-        document.getElementById('puzzleForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        let currentStep = 1;
+        let stepData = {};
+        let cluesData = [];
+        let currentClueIndex = 0;
+        let processedClues = [];
+
+        // Step navigation
+        function goToStep(step) {
+            // Hide current step
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
             
-            // Show loading state
-            document.querySelector('.loading').style.display = 'inline';
-            document.querySelector('.not-loading').style.display = 'none';
-            document.getElementById('helpText').style.display = 'none';
+            // Show target step
+            document.getElementById(`step${step}`).classList.add('active');
+            
+            // Update progress bar
+            const progress = (step / 6) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            
+            currentStep = step;
+        }
+
+        function showLoading(step) {
+            document.getElementById(`loading${step}`).style.display = 'flex';
+        }
+
+        function hideLoading(step) {
+            document.getElementById(`loading${step}`).style.display = 'none';
+        }
+
+        function showError(message) {
+            document.getElementById('errorMessage').textContent = message;
+            document.getElementById('errorAlert').style.display = 'block';
+            document.getElementById('errorAlert').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideError() {
             document.getElementById('errorAlert').style.display = 'none';
-            document.getElementById('resultsSection').style.display = 'none';
+        }
+
+        // Step 1: Extract Inputs
+        document.getElementById('step1Form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideError();
+            showLoading(1);
             
-            // Get form data
             const formData = new FormData(this);
             
             try {
-                const response = await fetch('/process', {
+                const response = await fetch('/granular_step1_extract_inputs', {
                     method: 'POST',
                     body: formData
                 });
@@ -229,105 +522,415 @@
                 if (result.error) {
                     showError(result.error);
                 } else {
-                    showResults(result);
+                    // Store step data
+                    stepData.step1 = result;
+                    stepData.model = formData.get('model');
+                    stepData.api_key = formData.get('api_key');
+                    stepData.verbose = formData.get('verbose') === 'on';
+                    stepData.auto_fix = formData.get('auto_fix') === 'on';
+                    stepData.puzzle_text = formData.get('puzzle_text');
+                    
+                    // Show inputs in step 2
+                    document.getElementById('inputsData').value = result.input_asp_facts;
+                    document.getElementById('inputsStatus').textContent = `Extracted by ${result.provider} ${result.model_used}`;
+                    document.getElementById('inputsResult').classList.add('success');
+                    
+                    // Store the JSON for later processing
+                    stepData.inputs_info = result.inputs_info;
+                    
+                    goToStep(2);
                 }
-                
             } catch (error) {
                 showError('Network error: ' + error.message);
             } finally {
-                // Hide loading state
-                document.querySelector('.loading').style.display = 'none';
-                document.querySelector('.not-loading').style.display = 'inline';
+                hideLoading(1);
             }
         });
-        
-        function showError(message) {
-            document.getElementById('errorMessage').textContent = message;
-            document.getElementById('errorAlert').style.display = 'block';
-        }
-        
-        function showResults(result) {
-            // Update status badges
-            const badges = document.getElementById('statusBadges');
-            badges.innerHTML = `
-                <span class="badge ${result.syntax_valid ? 'badge-success' : 'badge-danger'} me-1">
-                    ${result.syntax_valid ? '✅ Syntax OK' : '❌ Syntax Errors'}
-                </span>
-                <span class="badge ${result.solution_success ? 'badge-success' : 'badge-warning'} me-1">
-                    ${result.solution_success ? '🎉 Solved' : '⚠️ No Solution'}
-                </span>
-                <span class="badge bg-info text-dark">
-                    🤖 ${result.provider} - ${result.model_used}
-                </span>
-            `;
+
+        // Step 2: Start Clue Processing
+        async function startClueProcessing() {
+            hideError();
             
-            // Show ASP facts
-            document.getElementById('aspFacts').textContent = result.asp_facts;
-            
-            // Show syntax errors if any
-            const syntaxErrorsDiv = document.getElementById('syntaxErrors');
-            if (result.syntax_errors && result.syntax_errors.length > 0) {
-                syntaxErrorsDiv.innerHTML = `
-                    <div class="alert alert-warning">
-                        <h6>⚠️ Syntax Issues:</h6>
-                        <ul class="mb-0">
-                            ${result.syntax_errors.map(error => `<li>${error}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
-            } else {
-                syntaxErrorsDiv.innerHTML = '';
-            }
-            
-            // Show solution
-            const solutionStatusDiv = document.getElementById('solutionStatus');
-            if (result.solution_success) {
-                solutionStatusDiv.innerHTML = '<div class="alert alert-success">🎉 Puzzle solved successfully!</div>';
+            // Parse puzzle to get clues
+            try {
+                const puzzleData = JSON.parse(stepData.puzzle_text);
+                cluesData = puzzleData.clues || [];
                 
-                // Use formatted solutions if available, otherwise fall back to raw facts
-                if (result.formatted_solutions) {
-                    document.getElementById('solutionFacts').innerHTML = `
-                        <pre style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; font-size: 14px; line-height: 1.4;">${result.formatted_solutions}</pre>
-                    `;
-                } else if (result.solution_facts && result.solution_facts.length > 0) {
-                    const factsByPredicate = {};
-                    result.solution_facts.forEach(fact => {
-                        const predicate = fact.split('(')[0];
-                        if (!factsByPredicate[predicate]) {
-                            factsByPredicate[predicate] = [];
-                        }
-                        factsByPredicate[predicate].push(fact);
-                    });
-                    
-                    let formattedSolution = '';
-                    Object.keys(factsByPredicate).sort().forEach(predicate => {
-                        formattedSolution += `\n${predicate.toUpperCase()}:\n`;
-                        factsByPredicate[predicate].forEach(fact => {
-                            formattedSolution += `  ${fact}\n`;
-                        });
-                    });
-                    
-                    document.getElementById('solutionFacts').innerHTML = `
-                        <h6>Solution Facts:</h6>
-                        <pre>${formattedSolution}</pre>
-                    `;
+                if (cluesData.length === 0) {
+                    showError('No clues found in puzzle data');
+                    return;
                 }
-            } else {
-                solutionStatusDiv.innerHTML = '<div class="alert alert-warning">⚠️ Could not solve puzzle</div>';
-                document.getElementById('solutionFacts').innerHTML = '';
+                
+                // Update stats
+                document.getElementById('totalCount').textContent = cluesData.length;
+                document.getElementById('processedCount').textContent = '0';
+                
+                // Create clue boxes
+                const cluesList = document.getElementById('cluesList');
+                cluesList.innerHTML = '';
+                
+                cluesData.forEach((clue, index) => {
+                    const clueBox = document.createElement('div');
+                    clueBox.className = 'clue-box';
+                    clueBox.id = `clue-${clue.id}`;
+                    clueBox.innerHTML = `
+                        <div class="result-header">
+                            🔍 Clue ${clue.id}
+                            <span class="badge bg-secondary ms-2">Waiting</span>
+                        </div>
+                        <div class="result-content">
+                            <p><strong>Clue Text:</strong> ${clue.text}</p>
+                            <textarea class="editable-result" style="min-height: 150px; display: none;" placeholder="ASP clue facts will appear here..."></textarea>
+                            <div class="form-text" style="display: none;">
+                                Edit the ASP clue facts if needed.
+                            </div>
+                        </div>
+                    `;
+                    cluesList.appendChild(clueBox);
+                });
+                
+                processedClues = [];
+                currentClueIndex = 0;
+                
+                goToStep(3);
+                
+                // Start processing clues one by one
+                processNextClue();
+                
+            } catch (error) {
+                showError('Error parsing puzzle data: ' + error.message);
+            }
+        }
+
+        // Process next clue
+        async function processNextClue() {
+            if (currentClueIndex >= cluesData.length) {
+                // All clues processed
+                document.getElementById('processingStatus').textContent = 'All clues processed!';
+                document.getElementById('nextAfterClues').disabled = false;
+                return;
             }
             
-            document.getElementById('solutionOutput').textContent = result.solution_output;
+            const clue = cluesData[currentClueIndex];
+            const clueBox = document.getElementById(`clue-${clue.id}`);
+            const badge = clueBox.querySelector('.badge');
+            const textarea = clueBox.querySelector('textarea');
+            const formText = clueBox.querySelector('.form-text');
             
-            // Show structure
-            document.getElementById('structureInfo').textContent = JSON.stringify(result.structured_info, null, 2);
+            // Mark as processing
+            clueBox.classList.add('processing');
+            badge.textContent = 'Processing...';
+            badge.className = 'badge bg-primary ms-2';
+            document.getElementById('processingStatus').textContent = `Processing clue ${clue.id}...`;
             
-            // Show results section
-            document.getElementById('resultsSection').style.display = 'block';
+            try {
+                const formData = new FormData();
+                formData.append('puzzle_text', stepData.puzzle_text);
+                formData.append('inputs_info', JSON.stringify(stepData.inputs_info));
+                formData.append('clue_text', clue.text);
+                formData.append('clue_id', clue.id);
+                formData.append('model', stepData.model);
+                formData.append('api_key', stepData.api_key);
+                formData.append('verbose', stepData.verbose);
+                
+                const response = await fetch('/granular_step2_process_clue', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.error) {
+                    // Mark as error
+                    clueBox.classList.remove('processing');
+                    clueBox.classList.add('error');
+                    badge.textContent = 'Error';
+                    badge.className = 'badge bg-danger ms-2';
+                    textarea.value = `Error: ${result.error}`;
+                } else {
+                    // Mark as completed
+                    clueBox.classList.remove('processing');
+                    clueBox.classList.add('completed');
+                    badge.textContent = 'Completed';
+                    badge.className = 'badge bg-success ms-2';
+                    
+                    // Show extraction result
+                    textarea.value = result.clue_asp_facts;
+                    textarea.style.display = 'block';
+                    formText.style.display = 'block';
+                    
+                    // Store result (both ASP and JSON for later use)
+                    processedClues.push({
+                        clue_extraction: result.clue_extraction,
+                        clue_asp_facts: result.clue_asp_facts,
+                        clue_id: result.clue_id,
+                        clue_text: result.clue_text
+                    });
+                }
+                
+                // Update stats
+                currentClueIndex++;
+                document.getElementById('processedCount').textContent = currentClueIndex;
+                
+                // Process next clue after a short delay
+                setTimeout(processNextClue, 1000);
+                
+            } catch (error) {
+                // Mark as error
+                clueBox.classList.remove('processing');
+                clueBox.classList.add('error');
+                badge.textContent = 'Network Error';
+                badge.className = 'badge bg-danger ms-2';
+                textarea.value = `Network Error: ${error.message}`;
+                
+                // Continue with next clue
+                currentClueIndex++;
+                document.getElementById('processedCount').textContent = currentClueIndex;
+                setTimeout(processNextClue, 1000);
+            }
         }
-        
-        // Initialize syntax highlighting
-        hljs.highlightAll();
+
+        // Show encoding content
+        async function showEncoding() {
+            goToStep(4);
+            showLoading(4);
+            
+            try {
+                const response = await fetch('/get_encoding_content');
+                const result = await response.json();
+                
+                if (result.error) {
+                    showError(result.error);
+                    document.getElementById('encodingStatus').textContent = 'Error';
+                    document.getElementById('encodingStatus').className = 'badge bg-danger ms-2';
+                } else {
+                    document.getElementById('encodingContent').textContent = result.encoding_content;
+                    document.getElementById('encodingStatus').textContent = `Loaded (${result.encoding_file})`;
+                    document.getElementById('encodingStatus').className = 'badge bg-success ms-2';
+                    document.getElementById('encodingResult').classList.add('success');
+                }
+            } catch (error) {
+                showError('Network error: ' + error.message);
+            } finally {
+                hideLoading(4);
+            }
+        }
+
+        // Generate ASP Facts
+        async function generateASP() {
+            goToStep(5);
+            showLoading(5);
+            
+            try {
+                // Collect all processed clues (JSON extractions, not ASP)
+                const cluesExtractions = processedClues.map(clue => clue.clue_extraction);
+                
+                const formData = new FormData();
+                formData.append('inputs_info', JSON.stringify(stepData.inputs_info));
+                formData.append('clues_extractions', JSON.stringify(cluesExtractions));
+                formData.append('verbose', stepData.verbose);
+                
+                const response = await fetch('/granular_step3_generate_asp', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.error) {
+                    showError(result.error);
+                    document.getElementById('aspStatus').textContent = 'Error';
+                    document.getElementById('aspStatus').className = 'badge bg-danger ms-2';
+                } else {
+                    stepData.aspFacts = result.asp_facts;
+                    document.getElementById('aspData').value = result.asp_facts;
+                    document.getElementById('aspStatus').textContent = 'Generated ✓';
+                    document.getElementById('aspStatus').className = 'badge bg-success ms-2';
+                    document.getElementById('aspResult').classList.add('success');
+                }
+            } catch (error) {
+                showError('Network error: ' + error.message);
+            } finally {
+                hideLoading(5);
+            }
+        }
+
+        // Validate ASP
+        async function validateASP() {
+            showLoading(5);
+            
+            const aspData = document.getElementById('aspData').value;
+            
+            const formData = new FormData();
+            formData.append('asp_facts', aspData);
+            formData.append('model', stepData.model);
+            formData.append('api_key', stepData.api_key);
+            formData.append('verbose', stepData.verbose);
+            formData.append('auto_fix', stepData.auto_fix);
+            
+            try {
+                const response = await fetch('/step3_validate_asp', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.error) {
+                    showError(result.error);
+                } else {
+                    // Update ASP facts if they were corrected
+                    document.getElementById('aspData').value = result.asp_facts;
+                    
+                    // Show validation status
+                    const statusBadge = document.getElementById('aspStatus');
+                    const syntaxErrorsDiv = document.getElementById('syntaxErrors');
+                    
+                    if (result.is_valid) {
+                        statusBadge.textContent = 'Valid ✓';
+                        statusBadge.className = 'badge bg-success ms-2';
+                        document.getElementById('aspResult').classList.add('success');
+                        syntaxErrorsDiv.innerHTML = '';
+                        
+                        if (result.correction_attempted) {
+                            syntaxErrorsDiv.innerHTML = '<div class="alert alert-info">✨ Auto-corrected by AI</div>';
+                        }
+                    } else {
+                        statusBadge.textContent = 'Invalid ❌';
+                        statusBadge.className = 'badge bg-danger ms-2';
+                        document.getElementById('aspResult').classList.add('error');
+                        
+                        if (result.syntax_errors.length > 0) {
+                            syntaxErrorsDiv.innerHTML = `
+                                <div class="alert alert-warning">
+                                    <h6>⚠️ Syntax Issues:</h6>
+                                    <ul class="mb-0">
+                                        ${result.syntax_errors.map(error => `<li>${error}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            `;
+                        }
+                    }
+                }
+            } catch (error) {
+                showError('Network error: ' + error.message);
+            } finally {
+                hideLoading(5);
+            }
+        }
+
+        // Solve Puzzle
+        async function solvePuzzle() {
+            goToStep(6);
+            showLoading(6);
+            
+            const aspData = document.getElementById('aspData').value;
+            
+            const formData = new FormData();
+            formData.append('asp_facts', aspData);
+            formData.append('model', stepData.model);
+            formData.append('api_key', stepData.api_key);
+            formData.append('verbose', stepData.verbose);
+            formData.append('auto_fix', stepData.auto_fix);
+            
+            try {
+                const response = await fetch('/step4_solve_puzzle', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.error) {
+                    showError(result.error);
+                } else {
+                    stepData.solution = result;
+                    
+                    // Show solution
+                    const statusBadge = document.getElementById('solutionStatus');
+                    const formattedSolutionDiv = document.getElementById('formattedSolution');
+                    const solutionOutputPre = document.getElementById('solutionOutput');
+                    
+                    if (result.solution_success) {
+                        statusBadge.textContent = 'Solved! 🎉';
+                        statusBadge.className = 'badge bg-success ms-2';
+                        document.getElementById('solutionResult').classList.add('success');
+                        
+                        if (result.formatted_solutions) {
+                            formattedSolutionDiv.innerHTML = `<pre style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; font-size: 14px; line-height: 1.4;">${result.formatted_solutions}</pre>`;
+                        } else {
+                            formattedSolutionDiv.innerHTML = '<div class="alert alert-info">Solution found but formatting failed</div>';
+                        }
+                        
+                        if (result.correction_attempted) {
+                            formattedSolutionDiv.innerHTML += '<div class="alert alert-info mt-2">✨ Auto-corrected by AI</div>';
+                        }
+                    } else {
+                        statusBadge.textContent = 'No Solution ⚠️';
+                        statusBadge.className = 'badge bg-warning ms-2';
+                        document.getElementById('solutionResult').classList.add('error');
+                        formattedSolutionDiv.innerHTML = '<div class="alert alert-warning">Could not solve puzzle. Check the ASP facts and try again.</div>';
+                    }
+                    
+                    solutionOutputPre.textContent = result.solution_output;
+                }
+            } catch (error) {
+                showError('Network error: ' + error.message);
+            } finally {
+                hideLoading(6);
+            }
+        }
+
+        // Utility functions
+        function toggleRawSolution() {
+            const rawDiv = document.getElementById('rawSolution');
+            rawDiv.style.display = rawDiv.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function startOver() {
+            // Reset everything
+            stepData = {};
+            cluesData = [];
+            currentClueIndex = 0;
+            processedClues = [];
+            
+            // Clear all data
+            document.getElementById('inputsData').value = '';
+            document.getElementById('cluesList').innerHTML = '';
+            document.getElementById('aspData').value = '';
+            document.getElementById('formattedSolution').innerHTML = '';
+            document.getElementById('syntaxErrors').innerHTML = '';
+            document.getElementById('encodingContent').textContent = '';
+            
+            // Reset UI states
+            document.querySelectorAll('.result-box').forEach(r => {
+                r.classList.remove('success', 'error', 'edited');
+            });
+            
+            goToStep(1);
+        }
+
+        // Edit detection
+        document.getElementById('inputsData').addEventListener('input', function() {
+            if (stepData.step1) {
+                const originalASP = stepData.step1.input_asp_facts;
+                if (this.value !== originalASP) {
+                    document.getElementById('inputsResult').classList.add('edited');
+                } else {
+                    document.getElementById('inputsResult').classList.remove('edited');
+                }
+            }
+        });
+
+        document.getElementById('aspData').addEventListener('input', function() {
+            if (stepData.aspFacts) {
+                if (this.value !== stepData.aspFacts) {
+                    document.getElementById('aspResult').classList.add('edited');
+                } else {
+                    document.getElementById('aspResult').classList.remove('edited');
+                }
+            }
+        });
     </script>
 </body>
 </html> 
